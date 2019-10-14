@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="description" content=''>
+    <meta name="keywords" content=''>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/production.css">
+    <title>产品列表</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <img src="image/passage_img.jpg" alt="">
+    <nav class="CategoryNav">
+
+    </nav>
+    <nav class="NavChild">
+
+    </nav>
+
+    <div class="ProduceList" id="">
+
+    </div>
+
+    <footer>
+        <a href="Index.html"><img src="image/main.png" alt="">首页</a>
+        <a href="Production.html"><img src="image/produces_ch.png" alt="">公司产品</a>
+        <a href="Contact.html"><img src="image/contect.png" alt="">联系我们</a>
+    </footer>
+
+    <script>
+        (function Init(){
+            $('meta[name=keywords]').attr('content', localStorage.keys);
+            $('meta[name=description]').attr('content', localStorage.describe);
+            var nav_data;
+            var pro_data;
+            var getlink = function(e){
+                e = e || window.event;
+                //如果之前存有该ip记录，更新该ip的访问记录
+                if (visitor_id) {
+                    var NextUrl;
+                    var data_id = $(this).attr('data-id');
+                    if(data_id) NextUrl = $(this).attr('href') + '!!'+ $(this).attr('data-id') + '**';
+                    else NextUrl = $(this).attr('href') + '**';
+                    visitor_record += NextUrl;
+                    var json = JSON.stringify({
+                        id: visitor_id,
+                        url: visitor_record
+                    });
+                    var obj = "obj=" + json;
+                    localStorage.obj = obj;
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'jsonp',
+                        data: obj,
+                        jsonp: "jsoncallback",
+                        jsonpCallback: 'updataVisitRecord',
+                        url: '../back/BackSer.asmx/updataVisitRecord',
+                        success: function (result) {
+
+                        }
+                    });
+                }
+                //不存在ip记录，则添加该ip
+                else{
+                    var NextUrl = $(this).attr('href') + $(this).attr('data-id') + '***';
+                    var json = JSON.stringify({
+                        ip: visitor_ip,
+                        url: visitor_record
+                    });
+                    var obj = "obj=" + json;
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'jsonp',
+                        data: obj,
+                        jsonp: "jsoncallback",
+                        jsonpCallback: 'addVisitRecord',
+                        url: '../back/BackSer.asmx/addVisitRecord',
+                        success: function (result) {
+
+                        }
+                    });
+                }
+            };
+
+            $.ajax({
+                type: 'post',
+                dataType: 'jsonp',
+                jsonp:"jsoncallback",
+                jsonpCallback: 'getCategory',
+                url: '../back/BackSer.asmx/getCategory',
+                success: function(result) {
+                    nav_data = JSON.parse(JSON.stringify(result).replace(/JSON_/g, "").replace(/categoryname/g, "text"));
+                    console.log(nav_data);
+                    //渲染一级导航
+                    nav_data.rows.forEach(function (val, index, arr) {
+                        if (val.level === '2') {
+                            $('.CategoryNav').append('<a href="#' + val.id + '">' + val.text + '</a>');
+                        }
+                    });
+                    $('.CategoryNav a:first').addClass('isActive');
+
+                    //渲染一级导航下的二级导航
+                    nav_data.rows.forEach(function (val, index, arr) {
+                        var CategoryNav_a = $('.CategoryNav>a').length;
+                        if(CategoryNav_a) {
+                            var id = $('.CategoryNav>a:first').attr('href').replace('#', '');
+                            if (val.father === id) {
+                                $('.NavChild').append('<a href="#' + val.id + '">' + val.text + '</a>');
+                            }
+                        }
+                    });
+                    $('.NavChild a:first').addClass('isActive');
+
+                    //产品渲染
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'jsonp',
+                        jsonp: "jsoncallback",
+                        jsonpCallback: 'getProduction',
+                        url: '../back/BackSer.asmx/getProduction',
+                        success: function (result) {
+                            pro_data = JSON.parse(JSON.stringify(result).replace(/JSON_/g, ""));
+                            console.log(pro_data);
+                            var NavChild_a = $('.NavChild>a').length;
+                            if(NavChild_a) {
+                                var id = $('.NavChild .isActive').attr('href').replace('#', '');
+                                pro_data.rows.forEach(function (val, index, arr) {
+                                    var pic = '..' + val.detailimgs;
+                                    if (val.procategory === id) {
+                                        $('.ProduceList').append('<a class="produce"><img src="' + pic + '" alt=""><p>' + val.title.substr(0, 12) + '</p></a>');
+                                        $('.produce:last-child').attr('data-id', val.pid);
+                                        $('.produce:last-child').attr('href', 'product-mould.html');
+                                    }
+                                });
+                            }
+                            //产品点击事件
+                            $('.produce').click(function(){
+                                localStorage.id = $(this).attr('data-id');
+                            }).click(getlink);
+                        }
+                    });
+
+                    //一级导航点击事件
+                    $(".CategoryNav>a").click(function () {
+                        //渲染二级导航
+                        $('.CategoryNav>a').removeClass('isActive');
+                        $(this).addClass('isActive');
+                        $('.NavChild a').remove();
+                        var id = $(this).attr('href').replace('#', '');
+                        nav_data.rows.forEach(function (val, index, arr) {
+                            if (val.father === id) {
+                                $('.NavChild').append('<a href="#' + val.id + '">' + val.text + '</a>');
+                            }
+                        });
+                        $('.NavChild a:first').addClass('isActive');
+                        //重新渲染产品
+                        $('.produce').remove();
+                        var NavChild_a = $('.NavChild>a').length;
+                        if(NavChild_a) {
+                            var id = $('.NavChild .isActive').attr('href').replace('#', '');
+                            pro_data.rows.forEach(function (val, index, arr) {
+                                var pic = '..' + val.detailimgs;
+                                if (val.procategory === id) {
+                                    $('.ProduceList').append('<a class="produce"><img src="' + pic + '" alt=""><p>' + val.title.substr(0, 12) + '</p></a>');
+                                    $('.produce:last-child').attr('data-id', val.pid);
+                                    $('.produce:last-child').attr('href', 'product-mould.html');
+                                }
+                            });
+                        }
+                        //产品点击事件
+                        $('.produce').click(function(){
+                            localStorage.id = $(this).attr('data-id');
+                        }).click(getlink);
+                        //     }
+                        // });
+
+                        //二级导航点击事件
+                        $(".NavChild>a").click(function () {
+                            var NavChild_a = $('.NavChild>a').length;
+                            $('.NavChild a').removeClass('isActive');
+                            $(this).addClass('isActive');
+                            $('.produce').remove();
+                            //渲染产品
+                            var NavChild_a = $('.NavChild>a').length;
+                            if(NavChild_a) {
+                                var id = $('.NavChild .isActive').attr('href').replace('#', '');
+                                pro_data.rows.forEach(function (val, index, arr) {
+                                    var pic = '..' + val.detailimgs;
+                                    if (val.procategory === id) {
+                                        $('.ProduceList').append('<a class="produce"><img src="' + pic + '" alt=""><p>' + val.title.substr(0, 12) + '</p></a>');
+                                        $('.produce:last-child').attr('data-id', val.pid);
+                                        $('.produce:last-child').attr('href', 'product-mould.html');
+                                    }
+                                });
+                            }
+                            //产品点击事件
+                            $('.produce').click(function(){
+                                localStorage.id = $(this).attr('data-id');
+                            }).click(getlink);
+                        });
+
+                        $('.NavChild a:first').addClass('isActive');
+                    });
+
+                    //产品点击事件
+                    $('.produce').click(function(){
+                       localStorage.id = $(this).attr('data-id');
+                    }).click(getlink);
+                }
+            });
+            //监听链接事件，保存访问记录
+            $('a').click(function () {
+                localStorage.id = $(this).attr('data-id');
+            }).click(getlink);
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- rows[0].JSON_name %></title>
+    <script src="/javascripts/jquery-1.10.1.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/public.css' />
+    <link rel="stylesheet" href="/stylesheets/ckeditor.css" />
+    <script src="/javascripts/companyInfo.js"></script>
+    <!-- <script scripttype="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script> -->
+  </head>
+  <style>
+    .sub_mltimg {
+        width: 273px;
+        height: 134px;
+        background: url('/images/sub_lefttop03.png') no-repeat;
+    }
+    #contentPlace img{
+        max-width:100%;
+    }
+    </style>
+  <body>
+    <%- include('header'); -%>
+    <div class="main">
+        <div class="banner_aa">
+            <img src="/images/zoujinjianyi.jpg" alt="">
+        </div>
+        <div class="location">
+            <a href="/">首页</a>
+            >
+            <a href=""><%- rows[0].JSON_name%></a>
+        </div>
+        <div class="sub_main">
+            <div class="sub_mainleft">
+                <div class="sub_mltop">
+                    <div class="sub_mltimg">
+                        <dl>
+                            <dt>企业简介</dt>
+                        </dl>
+                    </div>
+                </div>
+                <div class="sub_mlm">
+                    <div class="sub_mltbt sub_mltbt_leave" id="sub_mlm1">
+                        <div class="sub_mltbtfont sub_mltbtfont_leave" id="sub_mlm11">
+                            <a href="/companyInfo/1" target="_blank">公司简介</a>
+                        </div>
+                    </div>
+                    <div class="sub_mltbt sub_mltbt_leave" id="sub_mlm2">
+                        <div class="sub_mltbtfont sub_mltbtfont_leave" id="sub_mlm22">
+                            <a href="/companyInfo/2" target="_blank">企业文化</a>
+                        </div>
+                    </div>
+                    <div class="sub_mltbt sub_mltbt_leave" id="sub_mlm3">
+                        <div class="sub_mltbtfont sub_mltbtfont_leave" id="sub_mlm33">
+                            <a href="/companyInfo/3" target="_blank">招聘信息</a>
+                        </div>
+                    </div>
+                    <!-- <div class="sub_mltbt sub_mltbt_leave" id="sub_mlm4">
+                        <div class="sub_mltbtfont sub_mltbtfont_leave" id="sub_mlm44">
+                            <a href="/companyInfo/4">联系我们</a>
+                        </div>
+                    </div> -->
+                    <%- include('left'); -%>
+                    <!-- <script src="js/left.js"></script> -->
+                </div>
+                
+            </div>
+            <div class="solution">
+                <dl>
+                    <dt><%- rows[0].JSON_name%></dt>
+                    <hr>
+                    <div id="contentPlace" style="margin-top: 30px">
+                        <%- rows[0].JSON_webdetails %>                       
+                    </div>
+                </dl>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <%- include('footer'); -%>
+    <script>
+      const link = '<%= locals.link %>';
+    </script>
+  </body>
+</html>

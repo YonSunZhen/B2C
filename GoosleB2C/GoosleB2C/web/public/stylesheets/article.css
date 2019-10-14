@@ -1,0 +1,19 @@
+.sub_mltimg {
+    width: 273px;
+    height: 134px;
+    background: url('../images/sub_lefttop04.png') no-repeat;
+}
+.sub_mainright_{
+    padding:15px;
+    /* padding-left:30px; */
+}
+.sub_news_{
+    float: left;
+    width: 830px;
+    padding: 30px;
+    height: auto;
+    background: url('../images/shadow.png') no-repeat;
+}
+#content_onerightcon  img{
+    max-width: 100%;
+}

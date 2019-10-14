@@ -1,0 +1,42 @@
+*{
+    padding:0;
+    margin:0;
+}
+html,body{
+    position: relative;
+    height: 100%;
+}
+header>img{
+    width: 100%;
+    height: 80%;
+}
+header>nav{
+    display:flex;
+    flex-flow: row wrap;
+    font-size: 20px;
+    background: #24a9e2;
+}
+nav>a{
+    display: inline-block;
+    width: 50%;
+    padding:4% 0;
+    color: white;
+    text-align: center;
+}
+footer{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 20%;
+    background: #24a9e2;
+}
+footer>a{
+    padding:0 2%;
+    color: white;
+}
+a+span{
+    padding: 0 1%;
+    color: white;
+}

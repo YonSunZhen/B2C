@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/public.css' />
+    <link rel="stylesheet" href="/stylesheets/article.css">
+    <link rel="stylesheet" href="/stylesheets/ckeditor.css" />
+    <script src="/javascripts/ejs.min.js"></script>
+    <script src="/javascripts/jquery-1.10.1.min.js"></script>
+    <script src="/javascripts/jquery.pager.js"></script> 
+    <script src="/javascripts/article.js"></script>
+    <!-- <script scripttype="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script> -->
+    <title>资讯中心</title>
+</head>
+<body>
+    <%- include('header'); -%>
+    <div class="main">
+        <div class="banner_aa">
+            <img src="/images/zixunzhongxin.jpg" alt="">
+        </div>
+        <div class="location">
+            <a href="/" target="_blank">首页</a>
+            >
+            <a href="/article" target="_blank">资讯中心</a>
+        </div>
+        <div class="sub_main">
+            <div class="sub_mainleft">
+                <div class="sub_mltop">
+                    <div class="sub_mltimg">
+                        <dl>
+                            <dt>资讯中心</dt>
+                        </dl>
+                    </div>
+                </div>
+                <div class="sub_mlm">
+                    <%locals.headerFooter.articleTypes.forEach(function(item){%>
+                        <div class="sub_mltbt sub_mltbt_leave" id="sub_mlm1">
+                            <div class="sub_mltbtfont sub_mltbtfont_leave" id="sub_mlm11">
+                                <a href="/article/type?id=<%=item.JSON_id%>" target="_blank"><%=item.JSON_typename%></a>
+                            </div>
+                        </div>
+                    <%})%>
+                    <%- include('left'); -%>
+                </div>
+            </div>
+            <div class="sub_news_">
+                <div class="content_onerightcon">
+                    <ul id="ul">        
+                        <% articleAll.forEach(function(item,index){%>
+                            <%if(index<articleAll.length && index<18){%>
+                                <li style="height:30px; line-height: 30px">
+                                    <div class="li_name" style="height:30px;">
+                                        <a href="/articleDetail/<%= item.id %>" target="_blank"><%= item.name %></a>
+                                    </div>
+                                    <div class="li_data"><%= item.time %></div>
+                                </li>
+                            <%}%>
+                        <%})%>
+                    </ul>
+                </div>
+                <div class="pager"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <%- include('footer'); -%>
+    <script>
+       window.articleLength = '<%= locals.articleLength %>';
+       const link = '<%= locals.link %>';
+    </script>
+
+</body>
+</html>

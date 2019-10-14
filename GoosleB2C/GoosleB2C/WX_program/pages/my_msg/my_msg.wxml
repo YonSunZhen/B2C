@@ -1,0 +1,58 @@
+<view style='height:321rpx;width:750rpx;'>
+  <image style='height:321rpx;width:100%;' src='{{my_msg_img}}'></image>
+</view>
+
+<view class='tele'>
+  <text style='margin:0rpx 10rpx 0rpx 273rpx;'>{{text_1}}</text>
+</view>
+<!-- <view>
+  <button class='new_msg' type='primary' bindtap='newMsg'>新建留言</button>
+</view> -->
+<view>
+  <view class='msgs'>
+
+    <!-- <text class='font'>我的留言</text> -->
+    <view wx:for='{{UserMessage}}'>
+      <block wx:if="{{item.JSON_to=='0'}}">
+        <view class='msg_area'>
+          <view class='msgs_my_'>
+            <image src='{{my_image}}' class='my_image'></image>
+            <view class='msgs_my'>
+              <text class='font_1'>{{item.JSON_content}}</text>
+            </view>
+          </view>
+          <text class='msg_time'>{{item.JSON_createtime}}</text>
+        </view>
+      </block>
+
+      <block wx:else>
+        <view class='msg_area'>
+          <view class='msgs_service_'>
+
+            <view class='msgs_service'>
+              <text class='font_1'>{{item.JSON_content}}</text>
+            </view>
+            <view class='user_img'>
+              <image src='{{s_image}}' class='my_image'></image>
+            </view>
+
+          </view>
+          <text class='msg_s_time'>{{item.JSON_createtime}}</text>
+        </view>
+      </block>
+
+    </view>
+    <block wx:if="{{isanswer==1}}">
+      <text class='font_3'>留言状态:{{msg_y}}</text>
+    </block>
+    <block wx:elif="{{isanswer==0}}">
+      <text class='font_2'>留言状态:{{msg_n}}</text>
+    </block>
+    <block wx:elif="{{isanswer==-1}}">
+      <text class='font_2'>留言状态:{{msg_none}}</text>
+    </block>
+  </view>
+  <!-- <block wx:if="{{isanswer!=-1}}">
+    <button class='res_btn' type='primary'>回复</button>
+  </block> -->
+</view>

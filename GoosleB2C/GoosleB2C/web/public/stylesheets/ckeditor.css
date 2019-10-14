@@ -1,0 +1,233 @@
+.ck-content blockquote {
+	/* See #12 */
+	overflow: hidden;
+
+	/* https://github.com/ckeditor/ckeditor5-block-quote/issues/15 */
+	padding-right: 1.5em;
+
+	padding-left: 1.5em;
+	margin-left: 0;
+	font-style: italic;
+	border-left: solid 5px hsl(0, 0%, 80%);
+}
+
+.text-tiny {
+	font-size: .7em;
+}
+
+.text-small {
+	font-size: .85em;
+}
+
+.text-big {
+	font-size: 1.4em;
+}
+
+.text-huge {
+	font-size: 1.8em;
+}
+
+.ck.ck-heading_heading1 {
+	font-size: 20px;
+}
+
+.ck.ck-heading_heading2 {
+	font-size: 17px;
+}
+
+.ck.ck-heading_heading3 {
+	font-size: 14px;
+}
+
+.ck[class*="ck-heading_heading"] {
+	font-weight: bold;
+}
+
+/*:root {
+	--ck-highlight-marker-yellow: #fdfd77;
+	--ck-highlight-marker-green: #63f963;
+	--ck-highlight-marker-pink: #fc7999;
+	--ck-highlight-marker-blue: #72cdfd;
+	--ck-highlight-pen-red: #e91313;
+	--ck-highlight-pen-green: #118800;
+}*/
+.marker-yellow{
+	background-color:#fdfd77;
+}
+.marker-green{
+	background-color:#63f963;
+}
+.marker-pink{
+	background-color:#fc7999;
+}
+.marker-blue{
+	background-color:#72cdfd;
+}
+.pen-red{
+	background-color:#e91313;
+}
+.pen-green{
+	background-color:#118800;
+}
+
+/*@define-mixin highlight-marker-color $color {
+	.marker-$color {
+		background-color: var(--ck-highlight-marker-$color);
+	}
+}*/
+.marker-$color {
+	background-color: var(--ck-highlight-marker-$color);
+}
+
+/*@define-mixin highlight-pen-color $color {
+	.pen-$color {
+		color: var(--ck-highlight-pen-$color);
+
+		 Override default yellow background of `<mark>` from user agent stylesheet 
+		background-color: transparent;
+	}
+}*/
+.pen-$color {
+	color: var(--ck-highlight-pen-$color);
+
+	/* Override default yellow background of `<mark>` from user agent stylesheet */
+	background-color: transparent;
+}
+
+@mixin highlight-marker-color yellow;
+@mixin highlight-marker-color green;
+@mixin highlight-marker-color pink;
+@mixin highlight-marker-color blue;
+
+@mixin highlight-pen-color red;
+@mixin highlight-pen-color green;
+
+.ck-content .image {
+	clear: both;
+	text-align: center;
+
+	& > img {
+		/* Prevent unnecessary margins caused by line-height (see #44). */
+		display: block;
+
+		/* Center the image if its width is smaller than the content's width. */
+		margin: 0 auto;
+
+		/* Make sure the image never exceeds the size of the parent container (ckeditor/ckeditor5-ui#67). */
+		max-width: 100%;
+	}
+}
+
+.ck-content .image > figcaption {
+	color: hsl(0, 0%, 20%);
+	background-color: hsl(0, 0%, 97%);
+	padding: .6em;
+	font-size: .75em;
+	outline-offset: -1px;
+}
+
+:root {
+	--ck-image-style-spacing: 1.5em;
+}
+
+.ck-content {
+	& .image-style-side,
+	& .image-style-align-left,
+	& .image-style-align-center,
+	& .image-style-align-right {
+		max-width: 50%;
+	}
+
+	& .image-style-side {
+		float: right;
+		margin-left: var(--ck-image-style-spacing);
+	}
+
+	& .image-style-align-left {
+		float: left;
+		margin-right: var(--ck-image-style-spacing);
+	}
+
+	& .image-style-align-center {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	& .image-style-align-right {
+		float: right;
+		margin-left: var(--ck-image-style-spacing);
+	}
+}
+
+.ck-image-upload-complete-icon {
+	display: block;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	border-radius: 50%;
+
+	&::after {
+		content: "";
+		position: absolute;
+	}
+}
+
+.ck .ck-upload-placeholder-loader {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+
+	&::before {
+		content: '';
+		position: relative;
+	}
+}
+
+:root {
+	--ck-image-upload-progress-line-width: 30px;
+}
+
+.ck-content .image {
+	position: relative;
+	overflow: hidden;
+
+	/* Upload progress bar. */
+	& .ck-progress-bar {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+.ck.ck-link-actions {
+	& .ck-link-actions__preview {
+		display: inline-block;
+
+		& .ck-button__label {
+			overflow: hidden;
+		}
+	}
+}
+
+.ck.ck-link-form {
+	& .ck-labeled-input {
+		display: inline-block;
+	}
+
+	& .ck-label {
+		display: none;
+	}
+}
+
+.ck.ck-text-alternative-form {
+	& .ck-labeled-input {
+		display: inline-block;
+	}
+
+	& .ck-label {
+		display: none;
+	}
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/javascripts/jquery-1.10.1.min.js"></script>
+    <script src="/javascripts/jquery.pager.js"></script>
+    <script src="/javascripts/successCase.js"></script>
+    <!-- <script scripttype="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script> -->
+    <link rel='stylesheet' href='/stylesheets/public.css' />
+    <link rel='stylesheet' href='/stylesheets/left.css' />
+    <link rel="stylesheet" href="/stylesheets/successCase.css">
+    <link rel="stylesheet" href="/stylesheets/ckeditor.css" />
+    <title>成功案例</title>
+</head>
+<body>
+    <%- include('header');-%>
+    <div class="main">
+        <div class="banner_aa">
+            <img src="/images/al.jpg" alt="">
+        </div>
+        <div class="location">
+            <a href="/">首页</a>
+            >
+            <a href="">成功案例</a>
+        </div>
+        <div class="sub_main">
+            <div class="sub_mainleft">
+                <div class="sub_mltop">
+                    <div class="sub_mltimg">
+                        <dl>
+                            <dt>成功案例</dt>
+                        </dl>
+                    </div>
+                </div>
+                <div class="sub_mlm">
+                    <div class="sub_mlm_top">
+                        <dl>
+                            <dt id="dt">
+                                <div class="sub_leftna">最新案例</div>
+                            </dt>
+                            <dd id="dd">
+                                <ul>
+                                    <%if(locals.successCase){%>
+                                        <% locals.successCase.forEach(function(item,index){ %>
+                                            <%if(index < locals.successCase.length && index < 4){%>
+                                                <li class="liSuccess">
+                                                    <a href="/successDetail/<%=item.JSON_id%>" target="_blank"><%= item.JSON_title %></a>
+                                                </li>
+                                            <%}%>
+                                        <% }) %>
+                                    <%}%>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                    <%- include('left'); -%>
+                </div>
+            </div>
+            <div class="sub_news">
+                <ul>
+                    <%rows.forEach(function(item,index){%>
+                        <%if(index < rows.length && index < 5){%>
+                            <li>
+                                <div class="sub_newsimg">
+                                    <a href="/successDetail/<%=item.JSON_id%>" >
+                                        <img src="<%= locals.link+item.JSON_mainimg %>_1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <dl>
+                                    <dt>
+                                        <div class="sub_newsbt">
+                                            <a href="/successDetail/<%=item.JSON_id%>" target="_blank">
+                                                <%= item.JSON_title %>
+                                            </a>
+                                        </div>
+                                        <div class="sub_newsdate"><%= item.JSON_createtime %></div>
+                                        <div class="clear"></div>
+                                    </dt>
+                                    <dd>
+                                        <%= item.JSON_summay %>
+                                    </dd>
+                                </dl>
+                                <div class="clear"></div>
+                            </li>
+                        <%}%>
+                    <%})%>
+                </ul>
+                <div class="pager"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <%- include('footer');-%>
+    <script>
+        var length1 = '<%=locals.successLength %>';
+        const link = '<%= locals.link %>';
+    </script>
+</body>
+</html>

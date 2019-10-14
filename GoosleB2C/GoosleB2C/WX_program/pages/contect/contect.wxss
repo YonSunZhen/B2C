@@ -1,0 +1,44 @@
+.tele {
+  background-color: #efefef;
+  font-weight: 400;
+  height: 50rpx;
+  padding: 10rpx;
+  padding-left: 35rpx;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 35rpx;
+  margin: 0px;
+}
+
+.img {
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+.number {
+  flex-direction: row;
+  margin: 10px;
+}
+
+.msg_post {
+  margin: 20rpx 30rpx 0rpx 170rpx;
+  background-size: 100rpx 100rpx;
+  background-repeat: no-repeat;
+  /* 上右下左 */
+  border: none;
+}
+
+.msg_post::after {
+  border: none;
+}
+
+.msg_font {
+  font-size: 30rpx;
+  margin: 0rpx 10rpx 30rpx 60rpx;
+  color: #8a8585;
+}
+
+.catagory_2nd {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

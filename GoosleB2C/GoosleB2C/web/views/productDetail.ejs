@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="<%= rows[0].JSON_seodescribe %>" />
+    <meta name="keywords" content="<%=  rows[0].JSON_seokey %>" />
+    <link rel="stylesheet" href="/stylesheets/zTreeStyle.css">
+    <link rel="stylesheet" href="/stylesheets/public.css">
+    <link rel="stylesheet" href="/stylesheets/product_detail.css">
+    <link rel="stylesheet" href="/stylesheets/ckeditor.css">
+    <script src="/javascripts/jquery-1.10.1.min.js"></script>
+    <script src="/javascripts/jquery.pager.js"></script>
+    <script src="/javascripts/jquery.ztree.core.js"></script>
+    <script src="/javascripts/ejs.min.js"></script>
+    <script src="/javascripts/product_detail.js"></script>
+    <!-- <script scripttype="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script> -->
+    <title><%=  rows[0].JSON_seotitle %></title>
+</head>
+<body>
+    <%- include('header'); -%>
+    <div class="main">
+        <div class="banner_aa">
+            <img src="/images/cp.jpg" alt="">
+        </div>
+        <div class="location">
+          <div class="search">
+              <input type="text" id="searchName" placeholder="请输入您要搜索的产品">
+              <span href="" id="search">
+                <img src="/images/search.png" alt="">
+              </span>
+            </div>
+          <a href="index.html">首页</a>
+          >
+          <a href="">产品展示</a>
+        </div>
+        <div class="sub_main" id="sub_main">
+            <div class="sub_mainleft">
+                <div class="sub_mltop">
+                    <div class="sub_mltimg">
+                        <dl>
+                            <dt>主要产品</dt>
+                        </dl>
+                    </div>
+                </div>
+                <div class="sub_mlm">
+                    <div class="sub_tree">
+                        <ul id="treeDemo" class="ztree"></ul>
+                    </div>
+                    <%- include('left'); -%>
+                </div>
+            </div>
+            <div class="sub_mainright_" id="ul">
+                <div id="ul1">
+                    <div id="leftbox">
+                        <div id="showbox">
+                            <div id="showbox1">
+                                <img id="normal" src="<%-locals.link+rows[0].JSON_img1 %>_400.jpg" alt="">
+                                <div id="slider"></div>
+                            </div>
+                            <div id="big">
+                                <img src="<%-locals.link+rows[0].JSON_img1 %>" alt="">
+                            </div>
+                        </div>
+                        <div id="showsum">
+                            <ul class="ul">
+                                <li>
+                                    <img class="img" src="<%-locals.link+rows[0].JSON_img1 %>_60.jpg" alt="" data-bigimg="<%-locals.link+rows[0].JSON_img1 %>">
+                                </li>
+                                <li>
+                                    <img class="img" src="<%-locals.link+rows[0].JSON_img2 %>_60.jpg" alt="" data-bigimg="<%-locals.link+rows[0].JSON_img2 %>">
+                                </li>
+                                <li>
+                                    <img class="img" src="<%-locals.link+rows[0].JSON_img3 %>_60.jpg" alt="" data-bigimg="<%-locals.link+rows[0].JSON_img3 %>">
+                                </li>
+                                <li>
+                                    <img class="img" src="<%-locals.link+rows[0].JSON_img4 %>_60.jpg" alt="" data-bigimg="<%-locals.link+rows[0].JSON_img4 %>">
+                                </li>
+                                <li>
+                                    <img class="img" src="<%-locals.link+rows[0].JSON_img5 %>_60.jpg" alt="" data-bigimg="<%-locals.link+rows[0].JSON_img5 %>">
+                                </li>
+                                <!-- 不会变换边框颜色 -->
+                                <div class="clear" style="width:100%"></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rightbox">
+                        <p class="imgname" id="imgName">
+                            <%-rows[0].JSON_title %>
+                        </p>
+                        <p class="price">
+                            价格:
+                            <samp id="price">￥<%-rows[0].JSON_price %></samp>
+                        </p>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="bottombox" id="bottombox">
+                        <%- rows[0].JSON_webdetails %>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <%- include('footer'); -%> 
+    <script>
+        var length ='<%=locals.productLength%>';
+        window.link ='<%=locals.link%>';
+    </script>
+</body>
+</html>

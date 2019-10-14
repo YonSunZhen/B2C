@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4125B6CB-C6E3-4A3D-878F-5BFB4F933A2D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Maticsoft.Common">
+      <HintPath>..\Lib\Maticsoft.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\Lib\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Article.cs" />
+    <Compile Include="ArticleType.cs" />
+    <Compile Include="Article_.cs" />
+    <Compile Include="Brand.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Category_.cs" />
+    <Compile Include="Massage_.cs" />
+    <Compile Include="CompanyContact.cs" />
+    <Compile Include="CompanyInfo_.cs" />
+    <Compile Include="CompanyInfo.cs" />
+    <Compile Include="DeliveryDetail.cs" />
+    <Compile Include="DeliveryDetail_.cs" />
+    <Compile Include="DeliveryTemplate.cs" />
+    <Compile Include="DeliveryTemplate_.cs" />
+    <Compile Include="Functions.cs" />
+    <Compile Include="Functions_.cs" />
+    <Compile Include="IndexContent.cs" />
+    <Compile Include="IndexImg.cs" />
+    <Compile Include="Links.cs" />
+    <Compile Include="Links_.cs" />
+    <Compile Include="Managers.cs" />
+    <Compile Include="Managers_.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="Message_.cs" />
+    <Compile Include="Powers.cs" />
+    <Compile Include="Powers_.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductType.cs" />
+    <Compile Include="Product_.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Regions.cs" />
+    <Compile Include="Regions_.cs" />
+    <Compile Include="Roles.cs" />
+    <Compile Include="Roles_.cs" />
+    <Compile Include="SuccessCase.cs" />
+    <Compile Include="SuccessCase_.cs" />
+    <Compile Include="UserLevel.cs" />
+    <Compile Include="UserLevel_.cs" />
+    <Compile Include="Users.cs" />
+    <Compile Include="Users_.cs" />
+    <Compile Include="VisitRecord.cs" />
+    <Compile Include="WaterMark.cs" />
+    <Compile Include="WaterMark_.cs" />
+    <Compile Include="WebInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{1247c06a-87e4-4ba7-b104-a4b95bdbe24c}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{2c0a3e64-cd34-4840-ba80-b6ab79ee6d0e}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+div>img{
+    width: 375px;
+    margin: 0 auto;
+}
+h1{
+    width: 95%;
+    margin:0 auto;
+    text-align:center;
+    font-size: 1.2rem;
+    border-bottom: 2px solid lightgray;
+}
+p{
+    padding: 20px;
+    text-indent: 20px;
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: #F7F7FA;
+}
+footer>a{
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    height: 80px;
+    color: black;
+}
+footer>a>img{
+    width: 20%;
+}

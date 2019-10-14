@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="<%= rows[0].JSON_seodescribe %>" />
+    <meta name="keywords" content="<%=  rows[0].JSON_seokey %>" />
+    <link rel='stylesheet' href='/stylesheets/public.css' />
+    <link rel="stylesheet" href="/stylesheets/article.css">
+    <link rel="stylesheet" href="/stylesheets/ckeditor.css" />
+    <script src="/javascripts/jquery-1.10.1.min.js"></script>
+    <script src="/javascripts/articleDetail.js"></script>
+    <!-- <script scripttype="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script> -->
+    <title><%=  rows[0].JSON_seotitle %></title>
+</head>
+<body>
+    <%- include('header'); -%>
+    <div class="main">
+        <div class="banner_aa">
+            <img src="/images/zixunzhongxin.jpg" alt="">
+        </div>
+        <div class="location">
+            <a href="/" target="_blank">首页</a>
+            >
+            <a href="/article" target="_blank">资讯中心</a>
+        </div>
+        <div class="sub_main">
+            <div class="sub_mainleft">
+                <div class="sub_mltop">
+                    <div class="sub_mltimg">
+                        <dl>
+                            <dt>资讯中心</dt>
+                        </dl>
+                    </div>
+                </div>
+                <div class="sub_mlm">
+                    <%locals.headerFooter.articleTypes.forEach(function(item){%>
+                        <div class="sub_mltbt sub_mltbt_leave" id="sub_mlm1">
+                            <div class="sub_mltbtfont sub_mltbtfont_leave" id="sub_mlm11">
+                                <a href="/article/type?id=<%=item.JSON_id%>"><%=item.JSON_typename%></a>
+                            </div>
+                        </div>
+                    <%})%>
+                    <%- include('left'); -%>
+                </div>
+            </div>
+            <div class="solution">
+                <div style="text-align: center;margin-bottom: 30px;">
+                    <h1><%- rows[0].JSON_title %></h1>
+                    <br>
+                    <div style="font-size: 12px;">点击量:<%- rows[0].JSON_readcount %></div>
+                </div>
+                <div class="content_onerightcon" id="content_onerightcon">
+                    <%- rows[0].JSON_webcontent %>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <%- include('footer'); -%>
+    <script>
+        const titleId = '<%- rows[0].JSON_id %>';
+        var titleReadCount = '<%- rows[0].JSON_readcount %>';
+        const link = '<%= locals.link %>';
+    </script>
+</body>
+</html>

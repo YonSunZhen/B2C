@@ -1,0 +1,44 @@
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/public.css' />
+    <link rel='stylesheet' href='/stylesheets/left.css' />
+      <div class="sub_mltcon">
+          <dl>
+            <dt>
+                <div class="sub_leftna">最新资讯</div>
+                <div class="sub_leftmore">
+                    <a href="/article" target="_blank">MORE</a>
+                </div>
+            </dt>
+            <dd>
+              <ul>
+                  <%if(locals.left.articles){%>
+                    <% locals.left.articles.forEach(function(item){ %>
+                    <li>
+                        <a href="/articleDetail/<%= item.id %>" target="_blank"><%= item.name %></a>
+                    </li>
+                    <% }) %>
+                  <%}%>
+              </ul>
+            </dd>
+        </dl>
+        <br>
+        <dl>
+            <dt>
+                <div class="sub_leftna">联系方式</div>
+            </dt>
+            <dd>
+                <div style="font-size:12px;line-height: 18px;padding:5px 10px">
+                    <%if(locals.left.contacts[0]){%>
+                        <b>公司地址:</b><%= locals.left.contacts[0].JSON_address %>          
+                        <br>
+                        <b>公司电话:</b><%= locals.left.contacts[0].JSON_phone %>
+                        <br>
+                        <b>公司邮箱:</b><%= locals.left.contacts[0].JSON_email %>
+                        <br>
+                    <%}%>
+                </div>
+              </dd>
+          </dl>
+        </div>
+  <!-- </body> -->
+<!-- </html> -->

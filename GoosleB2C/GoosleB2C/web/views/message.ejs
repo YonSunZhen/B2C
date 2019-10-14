@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>访客留言</title>
+    <script src="/javascripts/jquery-1.10.1.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/public.css' />
+    <link rel='stylesheet' href='/stylesheets/message.css' />
+    <link rel="stylesheet" href="/stylesheets/ckeditor.css" />
+    <script scripttype="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+  </head>
+  <body onload="createCode()">
+    <%- include('header'); -%>
+    <div class="main">
+        <div class="banner_aa">
+            <img src="/images/zoujinjianyi.jpg" alt="">
+        </div>
+        <div class="location">
+            <a href="/" target="_blank">首页</a>
+            >
+            <a href="/message" target="_blank">访客留言</a>
+        </div>
+        <div class="sub_main">
+            <div class="sub_mainleft">
+                <div class="sub_mltop">
+                    <div class="sub_mltimg">
+                        <dl>
+                            <dt>企业简介</dt>
+                        </dl>
+                    </div>
+                </div>
+                <div class="sub_mlm">
+                    <div class="sub_mltbt sub_mltbt_leave" id="sub_mlm4">
+                        <div class="sub_mltbtfont sub_mltbtfont_leave" id="sub_mlm44">
+                            <a href="/contact" target="_blank">联系我们</a>
+                        </div>
+                    </div>
+                    <div class="sub_mltbt sub_mltbt_leave" id="sub_mlm4">
+                        <div class="sub_mltbtfont sub_mltbtfont_leave" id="sub_mlm44">
+                            <a href="/message" target="_blank">访客留言</a>
+                        </div>
+                    </div>
+                    <%- include('left'); -%>
+                    <!-- <script src="js/left.js"></script> -->
+                </div>
+                
+            </div>
+            <div class="solution">
+                <div class="solution_content">
+                    <div class="form_div">
+                        <div class="form_name">姓名:</div>
+                        <input type="text" class="form_text" id="name" required>
+                        <font style="color:#ff0000;">&nbsp;*</font>
+                    </div>
+                    <div class="form_div">
+                        <div class="form_name">性别:</div>                       
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" id="boy" value="1" checked />先生
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" id="girl" value="2" /> 女士
+                        </label>
+                        <font style="color:#ff0000;">&nbsp;*</font>
+                    </div>
+                    <div class="form_div">
+                        <div class="form_name">微信:</div>
+                        <input type="text" class="form_text" id="wx">
+                        <font style="color:#ff0000;">&nbsp;*</font>
+                    </div>
+                    <div class="form_div">
+                        <div class="form_name">电话:</div>
+                        <input type="text" class="form_text" id="phone" required >
+                        <font style="color:#ff0000;">&nbsp;*</font>
+                    </div>
+                    <div class="form_div">
+                        <div class="form_name">留言内容:</div>
+                        <textarea name="" cols="30" rows="10"  class="textarea" id="content" required></textarea>
+                    </div>
+                    <div class="form_div">
+                        <div class="form_name">验证码:</div>
+                        <div class="form_text00">
+                            <input type="text" class="form_text00" id="input">
+                        </div>
+                        <div class="yzm">
+                            <input type="button" id="code"  title='点击更换验证码' /> 
+                        </div>
+                        <font style="color:#ff0000;">&nbsp;*</font>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="form_div">
+                        <div class="form_name">&nbsp;</div>
+                        <input type="button" class="button" id="add" value=提交 >                 
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <%- include('footer'); -%>
+    <script>
+        const link = '<%= locals.link%>';
+    </script>
+    <script src="/javascripts/jquery-1.10.1.min.js"></script>
+    <script src="/javascripts/message.js"></script>
+  </body>
+</html>s

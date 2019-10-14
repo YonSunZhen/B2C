@@ -1,0 +1,5 @@
+E:\B2C项目\GoosleB2C\Model\bin\Debug\Model.dll
+E:\B2C项目\GoosleB2C\Model\bin\Debug\Model.pdb
+E:\B2C项目\GoosleB2C\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\B2C项目\GoosleB2C\Model\obj\Debug\Model.dll
+E:\B2C项目\GoosleB2C\Model\obj\Debug\Model.pdb

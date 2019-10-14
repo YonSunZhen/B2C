@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="<%= rows[0].JSON_seodescribe %>" />
+    <meta name="keywords" content="<%=  rows[0].JSON_seokey %>" />
+    <script src="/javascripts/jquery-1.10.1.min.js"></script>
+    <script src="/javascripts/successDetail.js"></script>
+    <!-- <script scripttype="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script> -->
+    <link rel='stylesheet' href='/stylesheets/public.css' />
+    <link rel="stylesheet" href="/stylesheets/successCase.css">
+    <link rel='stylesheet' href='/stylesheets/left.css' />
+    <link rel="stylesheet" href="/stylesheets/ckeditor.css" />
+    <title><%=  rows[0].JSON_seotitle %></title>
+</head>
+<style>
+    #webContent img{
+        max-width: 100%;
+    }
+</style>
+<body>
+    <%- include('header');-%>
+    <div class="main">
+        <div class="banner_aa">
+            <img src="/images/al.jpg" alt="">
+        </div>
+        <div class="location">
+            <a href="/">首页</a>
+            >
+            <a href="/successCase">成功案例</a>
+        </div>
+        <div class="sub_main">
+            <div class="sub_mainleft">
+                <div class="sub_mltop">
+                    <div class="sub_mltimg">
+                        <dl>
+                            <dt>成功案例</dt>
+                        </dl>
+                    </div>
+                </div>
+                <div class="sub_mlm">
+                    <div class="sub_mlm_top">
+                        <dl>
+                            <dt id="dt">
+                                <div class="sub_leftna">最新案例</div>
+                            </dt>
+                            <dd id="dd">
+                                <ul>
+                                    <% locals.successCase.forEach(function(item,index){ %>
+                                        <%if(index < locals.successCase.length && index < 4){%>
+                                            <li class="liSuccess">
+                                                <a href="/successDetail/<%=item.JSON_id%>" target="_blank"><%= item.JSON_title %></a>
+                                            </li>
+                                        <%}%>
+                                    <% }) %>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                    <%- include('left');-%>
+                </div>
+            </div>
+            <div class="solution">
+                <div style="text-align: center;margin-bottom: 30px;">
+                    <h1><%- rows[0].JSON_title %></h1>
+                    <br>
+                    <div style="font-size: 12px;">点击量:<%- rows[0].JSON_readcount %></div>
+                </div>
+                <hr>
+                <div id="webContent" style="margin-top: 30px">
+                    <%- rows[0].JSON_webcontent %>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <%- include('footer');-%>
+    <script>
+        const successId = '<%- rows[0].JSON_id %>';
+        var successReadCount = '<%- rows[0].JSON_readcount %>';
+        const link = '<%= locals.link %>';
+    </script>
+</body>
+</html>

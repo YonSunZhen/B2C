@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="北京简易科技有限公司（http://www.jianea.com/）  物联网、云计算、智能制造和大数据分析  供智能制造和智慧生产咨询、培训、服务、产品和解决方案  物联网资产管理系统 智能大数据分析系统  自动化智能监测系统" />
+    <meta name="keywords" content="简易科技 北京简易科技有限公司 智能制造 精益六西格玛 设备管理 成本管理 智能检测系统 智能监测 智能仓储 物联网 联网资产管理系统 智能大数据分析系统  自动化智能监测系统" />
+    <title>公司官网首页</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/flexslider-min.css.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="header fixed">
+        <div class="top">
+            <div class="top_main">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="telephone">
+                    <a href="javascript:void(0)" onclick="SetHome(window.location)">设为首页</a>
+                    |
+                    <a href="javascript:void(0)" onclick="AddFavorite(window.location,document.title)">加入收藏</a>
+                    <a href="">
+                        <img src="images/telephone.png" alt="">
+                    </a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="head clearfix">
+            <ul class="nav">
+                <li class="li01">
+                    <a href="">首页</a>
+                </li>
+                <li id="erji1">
+                    <a class="li02" href="">公司产品</a>
+                    <div class="erji noDisplay" id="erji11">
+                        <p><a href="">1</a></p>
+                        <p><a href="">1</a></p>
+                        <p><a href="">1</a></p>
+                    </div>
+                </li>
+                <li id="erji2">
+                    <a class="li02" href="successCase.html">成功案例</a>
+                    <div class="erji noDisplay" id="erji22">
+                        <p><a href="">1</a></p>
+                        <p><a href="">1</a></p>
+                        <p><a href="">1</a></p>
+                    </div>
+                </li>
+                <li id="erji3">
+                    <a class="li02" href="">公司信息</a>
+                    <div class="erji noDisplay" id="erji33">
+                        <p><a href="">公司简介</a></p>
+                        <p><a href="">企业文化</a></p>
+                        <p><a href="">招聘信息</a></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function AddFavorite(sURL, sTitle) {
+        sURL = encodeURI(sURL);
+        try {
+            window.external.addFavorite(sURL, sTitle);
+        } catch (e) {
+            try {
+                window.sidebar.addPanel(sTitle, sURL, "");
+            } catch (e) {
+                alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+            }
+        }
+    }
+    //设为首页
+    function SetHome(url) {
+        if (document.all) {
+            document.body.style.behavior = 'url(#default#homepage)';
+            document.body.setHomePage(url);
+        } else {
+            alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
+        }
+    }
+    //导航栏事件
+    $(".li02").each(function(index){
+        var liNode = $(this);
+        $(this).mouseover(function(){
+            // $(".erji").removeClass("noDisplay");
+            $(".nav li div").eq(index).addClass("display");            
+        })       
+    });
+    $("#erji1").mouseleave(function(index){
+        $("#erji11").removeClass("display");
+    });   
+    $("#erji2").mouseleave(function(index){
+        $("#erji22").removeClass("display");            
+    });
+    $("#erji3").mouseleave(function(index){
+        $("#erji33").removeClass("display");            
+    });
+    </script>  
+</body>
+</html>

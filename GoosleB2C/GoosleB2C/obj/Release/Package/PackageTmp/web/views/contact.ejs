@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- rows[0].JSON_name %></title>
+    <script src="/javascripts/jquery-1.10.1.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/public.css' />
+    <link rel="stylesheet" href="/stylesheets/ckeditor.css">
+    <script src="/javascripts/companyInfo.js"></script>
+    <!-- <script scripttype="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script> -->
+  </head>
+  <style>
+    .sub_mltimg {
+        width: 273px;
+        height: 134px;
+        background: url('/images/sub_lefttop03.png') no-repeat;
+    }
+    #contentPlace img{
+        max-width:100%;
+    }
+    /* .solution dl dd p:hover{
+        text-indent: 2em;
+    } */
+    </style>
+  <body>
+    <%- include('header'); -%>
+    <div class="main">
+        <div class="banner_aa">
+            <img src="/images/zoujinjianyi.jpg" alt="">
+        </div>
+        <div class="location">
+            <a href="/" target="_blank">首页</a>
+            >
+            <a href="/contact" target="_blank"><%- rows[0].JSON_name%></a>
+        </div>
+        <div class="sub_main">
+            <div class="sub_mainleft">
+                <div class="sub_mltop">
+                    <div class="sub_mltimg">
+                        <dl>
+                            <dt>企业简介</dt>
+                        </dl>
+                    </div>
+                </div>
+                <div class="sub_mlm">
+                    <div class="sub_mltbt sub_mltbt_leave" id="sub_mlm4">
+                        <div class="sub_mltbtfont sub_mltbtfont_leave" id="sub_mlm44">
+                            <a href="/contact" target="_blank">联系我们</a>
+                        </div>
+                    </div>
+                    <div class="sub_mltbt sub_mltbt_leave" id="sub_mlm4">
+                        <div class="sub_mltbtfont sub_mltbtfont_leave" id="sub_mlm44">
+                            <a href="/message" target="_blank">访客留言</a>
+                        </div>
+                    </div>
+                    <%- include('left'); -%>
+                    <!-- <script src="js/left.js"></script> -->
+                </div>
+                
+            </div>
+            <div class="solution">
+                <dl>
+                    <dt><%- rows[0].JSON_name%></dt>
+                    <hr>
+                    <div id="contentPlace" >
+                        <%- rows[0].JSON_webdetails %>                       
+                    </div>
+                </dl>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <%- include('footer'); -%>
+    <script>
+      const link = '<%= locals.link %>';
+    </script>
+  </body>
+</html>s

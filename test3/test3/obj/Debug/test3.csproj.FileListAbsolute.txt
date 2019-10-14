@@ -1,0 +1,6 @@
+E:\B2C项目\test3\test3\bin\test3.dll.config
+E:\B2C项目\test3\test3\bin\test3.dll
+E:\B2C项目\test3\test3\bin\test3.pdb
+E:\B2C项目\test3\test3\obj\Debug\test3.csprojResolveAssemblyReference.cache
+E:\B2C项目\test3\test3\obj\Debug\test3.dll
+E:\B2C项目\test3\test3\obj\Debug\test3.pdb

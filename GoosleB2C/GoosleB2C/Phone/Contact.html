@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="description" content=''>
+    <meta name="keywords" content=''>
+    <title>联系我们</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+</head>
+<body>
+    <img src="image/kefu.jpg" alt="">
+
+    <div class="MessageBoard">
+        <h5>留言板</h5>
+        <div class="message-area">
+            <div>
+                <label for="name">姓名：</label>
+                <input type="text" id="name" required>
+            </div>
+            <div>
+                <label for="boy">先生：</label>
+                <input type="radio" id="boy" name="sex" checked value="1">
+                <label for="girl">女士：</label>
+                <input type="radio" id="girl" name="sex" value="2">
+            </div>
+            <div>
+                <label for="wx">微信：</label>
+                <input type="text" id="wx">
+            </div>
+            <div>
+                <label for="phone">电话：</label>
+                <input type="text" id="phone" required>
+            </div>
+            <div>
+                <label for="msg">留言：</label>
+                <textarea rows="5" cols="35" id="msg"></textarea>
+            </div>
+            <div class="CodeArea">
+                <label for="input" class="label">验证码：</label>
+                <input type = "text" id="input"  style="height:35px;">
+                <input type = "button" id="code" onclick="createCode()" class="btn" style="height:35px;">
+            </div>
+            <input type = "button"  class='btn btn-primary' value = "留言">
+        </div>
+    </div>
+
+    <div class="PhoneContact">
+        <h5>电话联系</h5>
+        <p>客服热线：020-84791778</p>
+    </div>
+
+    <footer>
+        <a href="Index.html"><img src="image/main.png" alt="">首页</a>
+        <a href="Production.html"><img src="image/produces.png" alt="">公司产品</a>
+        <a href="Contact.html"><img src="image/contect_ch.png" alt="">联系我们</a>
+    </footer>
+
+    <script>
+        (function(){
+            var name = $('#name');
+            var wx = $('#wx');
+            var phone = $('#phone');
+            var input = $('#input');
+            var msg = $('#msg');
+            var push = $('input[type=button]');
+            var visitor_ip = returnCitySN["cip"];
+            console.log(visitor_ip);
+            var sex = $('input[type=radio]:checked').val();
+
+            String.prototype.trim=function(){
+                return this.replace(/(^\s*)|(\s*$)/g, "");
+            };
+
+            push.click(function(){
+                if(!name.val().trim()){
+                    alert('姓名不能为空');
+                    name.val('');
+                    name.focus();
+                }
+                else if(phone.val().trim().length>11){
+                    alert('请正确输入手机');
+                    phone.val('');
+                    phone.focus();
+                }
+                else if(!msg.val().trim()){
+                    alert('留言不能为空');
+                    msg.val('');
+                    msg.focus();
+                }
+                else if(input.val()  === '') {
+                    alert('请输入验证码');
+                    input.val('');
+                    input.focus();
+                }
+                else if(input.val().toUpperCase() !== code.toUpperCase()){
+                    alert('验证码不正确，请重新输入');
+                    input.val('');
+                    input.focus();
+                    createCode();
+                }
+                else{
+                    var json = JSON.stringify({
+                        name: name.val(),
+                        wx: wx.val(),
+                        phone: phone.val(),
+                        msg: msg.val(),
+                        ip: visitor_ip,
+                        sex: sex
+                    });
+                    console.log(json);
+                    var obj = "obj=" + json;
+                    $.ajax({
+                        type: 'post',
+                        data: obj,
+                        dataType: 'jsonp',
+                        jsonp: 'jsoncallback',
+                        jsonpCallback: 'addMessage',
+                        url: '../back/BackSer.asmx/addMessage',
+                        success: function(result){
+                            if(result.indexOf('成功') !== -1){
+                                alert('留言成功');
+                                location.reload();
+                            }
+                            else{
+                                alert('留言失败');
+                            }
+                        },
+                        error: function(xhr){
+                            alert("错误提示： " + xhr.status + " " + xhr.statusText);
+                        }
+                    });
+                }
+            });
+        })();
+
+    </script>
+    <script>
+        //设置一个全局的变量，便于保存验证码
+        var code;
+        function createCode(){
+            //首先默认code为空字符串
+            code = '';
+            //设置长度，这里看需求，我这里设置了4
+            var codeLength = 4;
+            var codeV = document.getElementById('code');
+            //设置随机字符
+            var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R', 'S','T','U','V','W','X','Y','Z');
+            //循环codeLength 我设置的4就是循环4次
+            for(var i = 0; i < codeLength; i++){
+                //设置随机数范围,这设置为0 ~ 36
+                var index = Math.floor(Math.random()*36);
+                //字符串拼接 将每次随机的字符 进行拼接
+                code += random[index];
+            }
+            //将拼接好的字符串赋值给展示的Value
+            codeV.value = code;
+        }
+
+        //设置此处的原因是每次进入界面展示一个随机的验证码，不设置则为空
+        window.onload = function (){
+            createCode();
+        }
+    </script>
+</body>
+</html>

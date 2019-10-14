@@ -1,0 +1,33 @@
+@charset "utf-8";
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+/* imgPlay */
+body{
+	width:100%;
+	}
+#imgPlay{overflow:hidden;width:100%; margin:auto;zoom:1;position:relative;height:auto;}
+#imgPlay .imgs img{width:100%;}
+#imgPlay .imgs li{float:left;position:relative}
+#imgPlay .imgs{width:200%}
+
+.flexslider{position:relative;height:auto;overflow:hidden;background:url(../images/loading.gif) 50% no-repeat;}
+.slides{position:relative;z-index:1;}
+.slides li{height:auto;}
+.slides li img{width:100%;}
+.flex-control-nav{position:absolute;bottom:10px;z-index:2;width:100%;text-align:center;}
+.flex-control-nav li{display:inline-block;margin:0 5px;*display:inline;zoom:1;}
+.flex-control-nav a{display:inline-block;width:25px;height:7px;line-height:40px;overflow:hidden;background:url(../images/dot.jpg) no-repeat;cursor:pointer;}
+.flex-control-nav .flex-active{display:inline-block;width:46px;height:7px;background:url(../images/dots.jpg) right 0 no-repeat;}
+
+.flex-direction-nav{position:absolute;z-index:3;width:100%;top:35%;}
+.flex-direction-nav li a{display:block;width:41px;height:115px;overflow:hidden;cursor:pointer;position:absolute;}
+.flex-direction-nav li a.flex-prev{left:0px;background:url(../images/left.png) center center no-repeat;}
+.flex-direction-nav li a.flex-next{right:0px;background:url(../images/right.png) center center no-repeat;}
+
+#imgPlay .prev{background:url(../images/left.png) no-repeat 0px 0px;left:1px;width:41px;cursor:pointer;text-indent:-9999px;position:absolute;top:30%;height:115px}
+#imgPlay .next{background:url(../images/right.png) no-repeat 0px 0px;left:1px;width:41px;cursor:pointer;text-indent:-9999px;position:absolute;top:30%;height:115px}
+#imgPlay .next{background-position:right 0px;right:1px;left:auto}
+#imgPlay .num{position:absolute;top:270px;left:50%;margin:0 0 0 -60px;height:19px;text-align:center;font-size:0;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;background:rgba(255,255,255,.3);filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#4CFFFFFF', EndColorStr='#4CFFFFFF')}
+#imgPlay .num span{display:inline-block;width:14px;height:13px;-webkit-border-radius:50%;-moz-border-radius:50%;-ms-border-radius:50%;-o-border-radius:50%;border-radius:50%;background:#b7b7b7;overflow:hidden;*zoom:1;cursor:pointer;margin:3px 3px 0 3px;}
+#imgPlay .num span.on{background:#FF4400;}
+#imgPlay #numInner{padding:3px 0 0 0;background:none transparent scroll repeat 0% 0%;position:absolute;top:275px;text-align:center}

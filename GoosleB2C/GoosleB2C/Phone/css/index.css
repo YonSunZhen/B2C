@@ -1,0 +1,210 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    padding-bottom: 100px;
+}
+.swiper-slide>a>img{
+    width: 375px;
+    height: 10rem;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+}
+nav>a{
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 6rem;
+    color: black;
+}
+nav>a>img{
+    height: 3rem;
+}
+hr{
+    height: .6rem;
+    border: none;
+    background: #F3F3F3;
+}
+.CaseList{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+.case-head{
+    display: flex;
+    justify-content: center;
+}
+.case-head>img{
+    height: 2.5rem;
+}
+.case{
+    display: block;
+    width: 90%;
+    height: 80px;
+    margin: .5rem 0;
+    color: black;
+    text-decoration: none;
+    background: #F3F3F3;
+}
+.case>img{
+    float: left;
+    width: 120px;
+    height: 80px;
+    margin-right: 10px;
+}
+.ProduceList{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.pro-head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+.pro-head>img{
+    height: 2.5rem;
+}
+.produce{
+    display: flex;
+    flex-flow: row wrap ;
+    width: 45%;
+    height: 13rem;
+    margin: 0 1%;
+    color: black;
+    text-decoration: none;
+    font-size: .8rem;
+    overflow: hidden;
+}
+.produce>img{
+    width: 165px;
+    height: 165px;
+}
+.produce>p{
+    width: 100%;
+    padding-left: .3rem;
+    margin-bottom: 0;
+    background-color: white;
+    white-space: nowrap;
+}
+.ArticleList{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+.art-head{
+    display: flex;
+    justify-content: center;
+}
+.art-head>img{
+    height: 2.2rem;
+}
+.article{
+    display: block;
+    width: 90%;
+    height: 80px;
+    margin: .5rem 0;
+    color: black;
+    text-decoration: none;
+    background: #F3F3F3;
+    overflow: hidden;
+}
+.article>img{
+    float: left;
+    width: 120px;
+    height: 80px;
+    margin-right: .6rem;
+}
+.VideoBox{
+    width: 90%;
+    margin: 0 auto;
+}
+.VideoBox>h2{
+    text-align: center;
+}
+video{
+    height: 200px;
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: #F7F7FA;
+}
+footer>a{
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    height: 5rem;
+    color: black;
+}
+footer>a>img{
+    width: 20%;
+}
+.insertImg{
+    margin-bottom: 2%;
+    text-align: center;
+}
+.insertImg>a>img{
+    width: 375px;
+}
+
+/*@media screen and (min-width: 767px) {
+    .swiper-slide>a>img{
+        width: 100%;
+        height: 20rem;
+    }
+    nav>a{
+        height: 8rem;
+        font-size: 1.5rem;
+    }
+    nav>a>img{
+        height: 5rem;
+    }
+    hr{
+        height: 1.5rem;
+    }
+    .case-head>img{
+        height: 5rem;
+    }
+    .case{
+        height: 10rem;
+        font-size: 1.5rem;
+    }
+    .pro-head>img{
+        height: 4.6rem;
+    }
+    .produce{
+        height: 15rem;
+        font-size: 1.5rem;
+    }
+    .produce .total{
+        font-size: 1rem;
+    }
+    .art-head>img{
+        height: 4rem;
+    }
+    .article{
+        height: 10rem;
+        margin: 1.1rem 0;
+        font-size: 2rem;
+    }
+    video{
+        height: 300px;
+    }
+    .insertImg{
+        height: 18rem;
+    }
+}/*

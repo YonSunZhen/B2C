@@ -1,0 +1,7 @@
+E:\B2C项目\GoosleB2C\DBUtility\bin\Debug\DBUtility.dll
+E:\B2C项目\GoosleB2C\DBUtility\bin\Debug\DBUtility.pdb
+E:\B2C项目\GoosleB2C\DBUtility\bin\Debug\MySql.Data.dll
+E:\B2C项目\GoosleB2C\DBUtility\bin\Debug\System.Data.SQLite.DLL
+E:\B2C项目\GoosleB2C\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+E:\B2C项目\GoosleB2C\DBUtility\obj\Debug\DBUtility.dll
+E:\B2C项目\GoosleB2C\DBUtility\obj\Debug\DBUtility.pdb

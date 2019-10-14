@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="description" content=''>
+    <meta name="keywords" content=''>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/success.css">
+    <title>成功案例</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<img src="image/case_img.jpg" alt="">
+
+<div class="CaseList">
+    <div class="case-head"><img src="image/case_img_1.jpg" alt=""></div>
+</div>
+
+<footer>
+    <a href="Index.html"><img src="image/main.png" alt="">首页</a>
+    <a href="Production.html"><img src="image/produces_ch.png" alt="">公司产品</a>
+    <a href="Contact.html"><img src="image/contect.png" alt="">联系我们</a>
+</footer>
+
+</body>
+
+<script>
+    var getlink = function(e){
+        e = e || window.event;
+        //如果之前存有该ip记录，更新该ip的访问记录
+        if (visitor_id) {
+            var NextUrl;
+            var data_id = $(this).attr('data-id');
+            if(data_id) NextUrl = $(this).attr('href') + '!!'+ $(this).attr('data-id') + '**';
+            else NextUrl = $(this).attr('href') + '**';
+            visitor_record += NextUrl;
+            var json = JSON.stringify({
+                id: visitor_id,
+                url: visitor_record
+            });
+            var obj = "obj=" + json;
+            localStorage.obj = obj;
+            $.ajax({
+                type: 'post',
+                dataType: 'jsonp',
+                data: obj,
+                jsonp: "jsoncallback",
+                jsonpCallback: 'updataVisitRecord',
+                url: '../back/BackSer.asmx/updataVisitRecord',
+                success: function (result) {
+
+                }
+            });
+        }
+        //不存在ip记录，则添加该ip
+        else{
+            var NextUrl = $(this).attr('href') + $(this).attr('data-id') + '***';
+            var json = JSON.stringify({
+                ip: visitor_ip,
+                url: visitor_record
+            });
+            var obj = "obj=" + json;
+            $.ajax({
+                type: 'post',
+                dataType: 'jsonp',
+                data: obj,
+                jsonp: "jsoncallback",
+                jsonpCallback: 'addVisitRecord',
+                url: '../back/BackSer.asmx/addVisitRecord',
+                success: function (result) {
+
+                }
+            });
+        }
+    };
+
+    (function Init(){
+        $.ajax({
+            type: 'post',
+            dataType: 'jsonp',
+            jsonp:"jsoncallback",
+            jsonpCallback: 'getSuccessCase',
+            url: '../back/BackSer.asmx/getSuccessCase',
+            success: function(result){
+                var data = JSON.parse(JSON.stringify(result).replace(/JSON_/g, "").replace(/categoryname/g, "text"));
+                console.log(data);
+                data.rows.forEach(function (val, index, arr) {
+                    var pic = '..' + val.imgs;
+                    $('.CaseList').append('<a class="case"><img src=' + pic + ' alt=""><span>'+ val.title +'</span></a>');
+                    $('.case:last-child').attr('data-id', val.id);
+                    $('.case:last-child').attr('href', 'case-mould.html');
+                });
+                //案例点击事件
+                $('a').click(function(){
+                    localStorage.id = $(this).attr('data-id');
+                }).click(getlink);
+            }
+        });
+
+    })();
+</script>
+</html>

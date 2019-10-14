@@ -1,0 +1,37 @@
+<view class='img'>
+
+<image style="width: 100%; height: 400rpx; background-color: #FFFFFF;"  src="{{src}}">
+</image>
+
+<view>
+  <view class='tele'>
+  <text>{{text_1}}</text>
+  </view>
+</view>
+<!-- 留言板 -->
+<view style='display: flex;flex-direction:row;margin-bottom:20rpx;'>
+<view style=''>
+<!-- “我要留言”按钮-->
+<button class='msg_post' open-type="getUserInfo"  bindgetuserinfo="getUserInfo"  bindtap='switchtopost' style='height:100rpx;width:100rpx;background-image:url(../image/msg1.PNG);'></button>
+<text class='msg_font' style='width:150rpx;margin:0rpx 0rpx 0rpx 160rpx;'>新建留言</text>
+</view>
+
+<view >
+<button class='msg_post' open-type="getUserInfo"  bindgetuserinfo="getUserInfo" bindtap='sw_mymsg' style='height:100rpx;width:100rpx;background-image:url(../image/msg.PNG);'></button>
+<text class='msg_font' style='width:150rpx;margin:0rpx 0rpx 0rpx 160rpx;'>留言板</text>
+</view>
+
+<!-- <view >
+<button class='msg_post'bindtap='sw_remsg' style='height:100rpx;width:100rpx;background-image:url(../image/msg3.PNG);'></button>
+<text class='msg_font' style='width:150rpx'>已回留言</text>
+</view> -->
+
+</view>
+</view>
+<view class='tele' selectable="false">
+<text>{{text_phone}}</text>
+</view>
+<view class='number'>
+<button type='primary' bindtap="calling">客服热线 : {{phone_number}}</button>
+</view>
+

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title> 
+    <style> 
+
+/* Demo Styles */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.title a :hover {
+    cursor:hand
+}
+.swiper-container {
+  width: 1000px;
+  height: 400px;
+  color: #fff;
+  text-align: center;
+}
+.red-slide {
+  background: #ca4040;
+}
+.blue-slide {
+  background: #4390ee;
+}
+.orange-slide {
+  background: #ff8604;
+}
+.green-slide {
+  background: #49a430;
+}
+.pink-slide {
+  background: #973e76;
+}
+.swiper-slide .title {
+  font-style: italic;
+  font-size: 42px;
+  margin-top: 80px;
+  margin-bottom: 0;
+  line-height: 45px;
+}
+.pagination {
+  position: absolute;
+  z-index: 20;
+  left: 10px;
+  bottom: 10px;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #222;
+  margin-right: 5px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.swiper-visible-switch {
+  background: #aaa;
+}
+.swiper-active-switch {
+  background: #fff;
+}
+
+
+    </style>     
+</head>
+<body>
+        <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide ">
+                    <div class="produce">
+                      <div class="produce_img">
+                          <img src="images/2018-07-18_112115.jpg" alt="">
+                      </div>
+                      <div class="produce_detail">
+                          <div class="produce_price">
+                              <div class="produce_price_detali">
+                                  <span>￥</span>
+                                  <strong>138.00</strong>
+                              </div>
+                          </div>
+                          <div class="produce_title">
+                              <a href="">
+                                  hahhahhahha静安嘉分解落实到积分啊可连接拉丝机法律绝对是看bFSHF会计法KJFHddddddddddddddddddddddddddddddddddddddd
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="swiper-slide ">
+                    <div class="produce">
+                      <div class="produce_img">
+                          <img src="images/2018-07-18_112115.jpg" alt="">
+                      </div>
+                      <div class="produce_detail">
+                          <div class="produce_price">
+                              <div class="produce_price_detali">
+                                  <span>￥</span>
+                                  <strong>138.00</strong>
+                              </div>
+                          </div>
+                          <div class="produce_title">
+                              <a href="">
+                                  hahhahhahha静安嘉分解落实到积分啊可连接拉丝机法律绝对是看bFSHF会计法KJFHddddddddddddddddddddddddddddddddddddddd
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="swiper-slide orange-slide">
+                    <div class="title">Slide 3</div>
+                  </div>
+                  <div class="swiper-slide green-slide">
+                    <div class="title">Slide 4</div>
+                  </div>
+                  <div class="swiper-slide pink-slide">
+                    <div class="title">Slide 5</div>
+                  </div>
+                  <div class="swiper-slide red-slide">
+                    <div class="title">Slide 6</div>
+                  </div>
+                  <div class="swiper-slide blue-slide">
+                    <div class="title">Slide 7</div>
+                  </div>
+                  <!-- <div class="swiper-slide orange-slide">
+                    <div class="title">Slide 8</div>
+                  </div> -->
+                </div>
+                <div class="pagination"></div>
+              </div>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/swiper.min.js"></script> 
+    <script type="text/javascript"> 
+        window.onload = function() {
+        var mySwiper = new Swiper('.swiper-container',{
+            // pagination : '.pagination',//定义一个Swiper的分页器。默认会在这个分页器里面生成与slide对应的span标签。
+            // autoplay:1000,
+            // // speed://滑动的速度
+            // loop: true,//设置为true 则开启loop模式。loop模式：会在wrapper前后生成若干个slides让slides看起来是衔接的，用于无限循环切换
+            // slidesPerView: 3,//一屏显示3个数据，也可自动
+            // autoplayDisableOnInteraction : false,
+            // paginationClickable: true
+            pagination: '.pagination',
+            autoplay:1000,
+            paginationClickable: true,
+            slidesPerView: 4,
+            autoplayDisableOnInteraction : false,
+            loop: true,
+            spaceBetween:20
+        });
+        $(".swiper-container").mouseenter(function () {//滑过悬停
+            mySwiper.stopAutoplay();//mySwiper 为上面你swiper实例化的名称
+        }).mouseleave(function(){//离开开启
+            mySwiper.startAutoplay();
+});  
+    }
+   </script>     
+</body>
+</html>

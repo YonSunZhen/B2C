@@ -1,0 +1,33 @@
+<view style='height:321rpx;width:100%;'>
+  <image style='height:321rpx;width:100%;' src='{{case_img}}'></image>
+</view>
+<!-- 间隔 -->
+<view style='width:100%;height:25rpx;background-color:#F3F3F3;'></view>
+
+<view style='width:100%;height:100rpx;'>
+  <image src='{{show_1}}' style='width:198rpx; height:72rpx;margin:20rpx 0rpx 20rpx 276rpx;'></image>
+</view>
+<!-- 展示模板 -->
+<!-- <view wx:for="{{Case}}">
+  <view style='height:250rpx;width:700rpx;background-color:#F3F3F3;border-radius: 10px;margin:10rpx 0rpx 25rpx 25rpx;display:flex;flex-direction:row;' bindtap='case_detail' data-id='{{item.JSON_content}}'>
+    <view style='height:240rpx;width:240rpx;'>
+      <image style='height:240rpx;width:240rpx;' src="{{Case_img_1}}"></image>
+    </view>
+    <view class=' CaseItem '>
+      <text class='title '>{{item.JSON_title}}</text>
+    </view>
+
+  </view>
+</view> -->
+
+<view wx:for="{{Case}}">
+  <view class='index_case' bindtap='case_detail' data-id='{{item}}'>
+    <view>
+      <image class='case_mainimg' src="{{item.JSON_mainimg}}"></image>
+    </view>
+    <view class='CaseItem'>
+      <text class='title '>{{item.JSON_title}}</text>
+    </view>
+
+  </view>
+</view>

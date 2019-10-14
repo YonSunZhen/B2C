@@ -1,0 +1,27 @@
+<view style='width:100%;' id='searchbar'>
+  <view class="page-section" style='width:600rpx;'>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" id='searchArea' value='{{searchInput}}' bindinput='changeSearch' placeholder="搜索产品..." />
+      </view>
+    </view>
+  </view>
+  <button style='width:150rpx;height:80rpx;' bindtap='doSearch'>搜索</button>
+</view>
+<block wx:if="{{product==''}}">
+  <text id='notfound'>没有找到呢...</text>
+</block>
+<view class='produceList'>
+  <view wx:for="{{product}}">
+    <view class='produce' bindtap='good' data-id='{{item}}'>
+      <image src='{{item.JSON_img1}}' class='produce_img'></image>
+      <view class='intro_area'>
+        <text class='produce_intro'>{{item.JSON_title}}</text>
+      </view>
+      <view class='price_area'>
+        <text class='dolar'>￥</text>
+        <text class='price'>{{item.JSON_price}}</text>
+      </view>
+    </view>
+  </view>
+</view>

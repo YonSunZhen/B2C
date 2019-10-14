@@ -1,0 +1,114 @@
+.tele {
+  background-color: #ebebeb;
+  font-weight: 400;
+  height: 50rpx;
+  padding: 10rpx;
+  padding-left: 35rpx;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 35rpx;
+  margin: 0px;
+}
+
+.font {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin: 0rpx 0rpx 20rpx 280rpx;
+}
+
+.font_1 {
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.font_2 {
+  font-size: 25rpx;
+  font-weight: 300;
+  margin: 0rpx 0rpx 0rpx 230rpx;
+  color: red;
+}
+
+.font_3 {
+  font-size: 25rpx;
+  font-weight: 300;
+  margin: 0rpx 0rpx 0rpx 230rpx;
+  color: #299661;
+}
+
+.msgs {
+  padding: 10rpx;
+  height: auto;
+  width: 700rpx;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  margin: 10rpx 0rpx 25rpx 25rpx;
+}
+
+.msgs_my {
+  width: auto;
+  margin: 0rpx 0rpx 0rpx 10rpx;
+  background-color: #a0e759;
+  border-radius: 8px;
+  padding: 10rpx 20rpx 20rpx 20rpx;
+}
+
+.msgs_my_ {
+  display: flex;
+  flex-direction: row;
+}
+
+.my_image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.s_image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+}
+
+.msgs_service_ {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.msgs_service {
+  width: auto;
+  margin: 0rpx 10rpx 5rpx 10rpx;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10rpx 20rpx 0rpx 20rpx;
+}
+
+.new_msg {
+  width: 100%;
+  height: 80rpx;
+  border-radius: 0px;
+}
+
+.res_btn {
+  width: 90%;
+  margin: 20rpx 0rpx 50rpx 38rpx;
+}
+
+.msg_time {
+  font-weight: 500;
+  font-size: 28rpx;
+  color: #8a8585;
+  margin: 0rpx 0rpx 0rpx 90rpx;
+}
+
+.msg_s_time {
+  font-weight: 500;
+  font-size: 28rpx;
+  color: #8a8585;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0rpx 90rpx 0rpx 0rpx;
+}
+.msg_area{
+  margin: 0rpx 0rpx 10rpx 0rpx;
+}

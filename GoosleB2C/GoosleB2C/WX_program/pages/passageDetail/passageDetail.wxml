@@ -1,0 +1,14 @@
+<view>
+  <image src='{{mainImg}}' style='width:100%;' mode='aspectFit'></image>
+  <text id='title'>{{title}}</text>
+  <view>
+  <text id='clickCount'>点击量:{{clickCount}}</text>
+  </view>
+  <view>
+  <text id='content'>{{content}}</text>
+  </view>
+
+  <block wx:for="{{imgs}}">
+    <image src='item' style='width:100%' mode='aspectFit'></image>
+  </block>
+</view>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Temp Web Page</title>
+        <style type="text/css">
+            body *{border:1px solid}
+             
+            #container{ width:200px; height:800px;
+                display: -moz-box;
+                display:-webkit-flex; 
+                display: -ms-flexbox;
+                 
+                -moz-box-orient: vertical;
+                -webkit-flex-direction:column;
+                -ms-flex-direction:column;
+            }
+ 
+            #inner1{ background:#ddd; }
+             
+            #inner2{  background:#aaa; 
+                -moz-box-flex: 1;
+                -webkit-flex:1;
+                -ms-flex:1;
+            }
+        </style>        
+    </head>
+    <body>
+        <div id="container">
+            <div id="inner1">
+            When you come to the end of a perfect day. It can only mean a tired heart, and the dear friends have to part.
+            </div>
+            <div id="inner2"></div>
+        </div>
+    </body>
+</html>

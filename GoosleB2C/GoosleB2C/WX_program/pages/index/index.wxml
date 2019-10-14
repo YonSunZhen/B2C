@@ -1,0 +1,125 @@
+<!--index.wxml-->
+<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgs}}" wx:key="imgid">
+    <swiper-item>
+      <!-- 类型1 -->
+      <block wx:if="{{item.typ==1}}">
+        <image src="{{item.img}}" class="slide-image" bindtap='sw_brand_product' data-id='{{item.id}}' />
+      </block>
+      <!-- 类型2 -->
+      <block wx:elif="{{item.typ==2}}">
+        <image src="{{item.img}}" class="slide-image" bindtap='sw_brand_case' data-id='{{item.id}}' />
+      </block>
+      <!-- 类型3 -->
+      <block wx:elif="{{item.typ==3}}">
+        <image src="{{item.img}}" class="slide-image" bindtap='sw_brand_passage' data-id='{{item.id}}' />
+      </block>
+      <!-- 其他类型 -->
+      <block wx:else>
+        <image src="{{item.img}}" class="slide-image" />
+      </block>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 功能栏 -->
+<view style='display: flex;flex-direction:row;margin-bottom:20rpx;'>
+  <view bindtap='sw_detail'>
+    <button class='msg_post' style='height:80rpx;width:80rpx;background-image:url({{logo_1}});'></button>
+    <text class='msg_font' style='width:150rpx'>公司详情</text>
+  </view>
+
+  <view bindtap='sw_category'>
+    <button class='msg_post' style='height:80rpx;width:80rpx;background-image:url({{logo_2}});'></button>
+    <text class='msg_font' style='width:150rpx'>产品列表</text>
+  </view>
+
+  <view bindtap='sw_passage'>
+    <button class='msg_post' style='height:80rpx;width:80rpx;background-image:url({{logo_3}});'></button>
+    <text class='msg_font' style='width:150rpx'>近期文章</text>
+  </view>
+
+  <view bindtap='sw_case'>
+    <button class='msg_post' style='height:80rpx;width:80rpx;background-image:url({{logo_4}});'></button>
+    <text class='msg_font' style='width:150rpx'>成功案例</text>
+  </view>
+</view>
+<!-- 间隔 -->
+<view class='gap'></view>
+
+<block wx:if="{{isshowSuccess=='1'}}">
+  <view style='width:100%;height:100rpx;'>
+    <image src='{{show_case}}' class='title_pic'></image>
+  </view>
+
+  <view wx:for="{{top_cases}}">
+    <view class='index_case' bindtap='sw_case_detail' data-id='{{item}}'>
+      <view>
+        <image class='case_mainimg' src="{{item.JSON_mainimg}}"></image>
+      </view>
+      <view class=' CaseItem '>
+        <text class='title '>{{item.JSON_title}}</text>
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 间隔 -->
+  <view class='gap'></view>
+</block>
+
+<!-- 精品产品展示 -->
+<block wx:if="{{isshowproduct=='1'}}">
+  <view>
+    <image src='{{show_1}}' class='title_pic'></image>
+  </view>
+
+  <view class='produceList'>
+    <view wx:for="{{top_produce}}">
+      <view class='produce' bindtap='delicateTap' data-id="{{item}}">
+        <image src='{{item.JSON_img1}}' class='produce_img'></image>
+        <view class='intro_area'>
+          <text class='produce_intro'>{{item.JSON_title}}</text>
+        </view>
+
+        <!-- <view class='price_area'>
+          <text class='dolar'>￥</text>
+          <text class='price'>{{item.JSON_price}}</text>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <!-- 间隔 -->
+  <view class='gap'></view>
+</block>
+
+
+
+
+
+
+<!-- 公司资讯 -->
+<block wx:if="{{isshowArticle=='1'}}">
+  <view style='width:100%;height:100rpx;'>
+    <image src='{{show_info}}' class='title_pic'></image>
+  </view>
+  <view class='produceList'>
+    <view wx:for="{{top_comInfo}}">
+      <view class='index_case' bindtap='sw_passage_detail' data-id='{{item}}'>
+        <view>
+          <image class='case_mainimg' src='{{item.JSON_mainimg}}'></image>
+        </view>
+        <view class=' CaseItem '>
+          <text class='title '>{{item.JSON_title}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+
+
+<!-- 视频展示 -->
+<block wx:if="{{isshowVideo=='1'}}">
+  <view>
+    <video id="myVideo" style='width:100%' src="{{videoUrl}}" binderror="videoErrorCallback" controls></video>
+  </view>
+</block>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>公司官网首页</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/flexslider-min.css.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    
+</head>
+<body>
+    <script>
+        if (/mobile/i.test(navigator.userAgent)) {
+            window.location = 'https://www.baidu.com';
+        }
+    </script>
+    <script src="js/head.js"></script>
+    <div class="main">
+        <div class="bannerbox">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="images/1-1503201209160-L.jpg" alt="" style="width:100%">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="images/1-150320120RRE.jpg" alt="" style="width:100%">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="images/1-1503201210110-L.jpg" alt="" style="width:100%">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="flex-direction-nav">
+                    <li><a href="#" class="flex-prev"></a></li>
+                    <li><a href="#" class="flex-next"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content_one">
+                <div class="content_oneleft">
+                    <div class="content_title">
+                        <div class="content_titlename">企业简介</div>
+                        <div class="more">
+                            <a href="introduce.html">MORE</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="content_oneleftcon" style="line-height:23px" id="content_oneleftcon">
+                        <img  alt="" style="width:295px;height:196px;" src="./images/3.jpg">
+                        xxxx科技有限公司以全球化的前瞻视野，致力于将物联网
+                    </div>
+                </div>
+                <!-- <div class="clear"></div> -->
+                <div class="content_oneright">
+                    <div class="content_title">
+                        <div class="content_titlename">新闻中心</div>
+                        <div class="more">
+                            <a href="news.html">MORE</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="content_onerightcon">
+                        <ul id="content_onerightcon">
+                            <li style="height:30px; line-height: 30px">
+                                <div class="li_name" style="height:30px;">
+                                    <a href="">新闻一</a>
+                                </div>
+                                <div class="li_data">[2018-7-11]</div>
+                            </li>
+                            <li style="height:30px;line-height: 30px">
+                                <div class="li_name" style="height:30px;">
+                                    <a href="">新闻一</a>
+                                </div>
+                                <div class="li_data">[2018-7-11]</div>
+                            </li>
+                            <li style="height:30px;line-height: 30px">
+                                <div class="li_name" style="height:30px;">
+                                    <a href="">新闻一</a>
+                                </div>
+                                <div class="li_data">[2018-7-11]</div>
+                            </li>
+                            <li style="height:30px;line-height: 30px">
+                                <div class="li_name" style="height:30px;">
+                                    <a href="">新闻一</a>
+                                </div>
+                                <div class="li_data">[2018-7-11]</div>
+                            </li>
+                            <li style="height:30px;line-height: 30px">
+                                <div class="li_name" style="height:30px;">
+                                    <a href="">新闻一</a>
+                                </div>
+                                <div class="li_data">[2018-7-11]</div>
+                            </li>
+                            <li style="height:30px;line-height: 30px">
+                                <div class="li_name" style="height:30px;">
+                                    <a href="">新闻一</a>
+                                </div>
+                                <div class="li_data">[2018-7-11]</div>
+                            </li>
+                            <li style="height:30px;line-height: 30px">
+                                <div class="li_name" style="height:30px;">
+                                    <a href="">新闻2</a>
+                                </div>
+                                <div class="li_data">[2018-7-11]</div>
+                            </li>
+                            <li style="height:30px;line-height: 30px">
+                                <div class="li_name" style="height:30px;">
+                                    <a href="">新闻3</a>
+                                </div>
+                                <div class="li_data">[2018-7-11]</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="content_two">
+                <div class=content_title>
+                    <div class="content_titlename">产品展示</div>
+                    <div class="more">
+                        <a href="">MORE</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="content_twocon">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper" id="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="produce">
+                                    <div class="produce_img">
+                                        <a href="" target="_blank">
+                                            <img alt="" id="img0" src="./images/img_03.png">
+                                        </a>
+                                    </div>
+                                    <div class="produce_detail">
+                                        <div class="produce_price">
+                                            <div class="produce_price_detali">
+                                                <span>￥</span>
+                                                <strong id="price0">138.00</strong>
+                                            </div>
+                                        </div>
+                                        <div class="produce_title">
+                                            <a href="" id="title0">
+                                                hahhahhahha静安嘉分解落实到积分啊可连接拉丝机法律绝对是看bFSHF会计法KJFHddddddddddddddddddddddddddddddddddddddd
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide ">
+                                <div class="produce">
+                                    <div class="produce_img">
+                                        <a href="" target="_blank">
+                                            <img src="./images/img_03.png" alt="" id="img1" >
+                                        </a>
+                                    </div>
+                                    <div class="produce_detail">
+                                        <div class="produce_price">
+                                            <div class="produce_price_detali">
+                                                <span>￥</span>
+                                                <strong id="price1">138.00</strong>
+                                            </div>
+                                        </div>
+                                        <div class="produce_title">
+                                            <a href="" id="title1">
+                                                hahhahhahha静安嘉分解落实到积分啊可连接拉丝机法律绝对是看bFSHF会计法KJFHddddddddddddddddddddddddddddddddddddddd
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide ">
+                                <div class="produce">
+                                    <div class="produce_img">
+                                        <a href="" target="_blank">
+                                            <img src="./images/img_03.png" alt="" id="img2">
+                                        </a>
+                                    </div>
+                                    <div class="produce_detail">
+                                        <div class="produce_price">
+                                            <div class="produce_price_detali">
+                                                <span>￥</span>
+                                                <strong id="price2">138.00</strong>
+                                            </div>
+                                        </div>
+                                        <div class="produce_title">
+                                            <a href="" id="title2">
+                                                hahhahhahha静安嘉分解落实到积分啊可连接拉丝机法律绝对是看bFSHF会计法KJFHddddddddddddddddddddddddddddddddddddddd
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide ">
+                                <div class="produce">
+                                    <div class="produce_img">
+                                        <a href="" target="_blank">
+                                            <img src="./images/img_03.png" alt="" id="img3">
+                                        </a>
+                                    </div>
+                                    <div class="produce_detail">
+                                        <div class="produce_price">
+                                            <div class="produce_price_detali">
+                                                <span>￥</span>
+                                                <strong id="price3">138.00</strong>
+                                            </div>
+                                        </div>
+                                        <div class="produce_title">
+                                            <a href="" id="title3">
+                                                hahhahhahha静安嘉分解落实到积分啊可连接拉丝机法律绝对是看bFSHF会计法KJFHddddddddddddddddddddddddddddddddddddddd
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide ">
+                                <div class="produce">
+                                    <div class="produce_img">
+                                        <a href="" target="_blank">
+                                            <img src="./images/img_03.png" alt="" id="img4">
+                                        </a>
+                                    </div>
+                                    <div class="produce_detail">
+                                        <div class="produce_price">
+                                            <div class="produce_price_detali">
+                                                <span>￥</span>
+                                                <strong id="price4">138.00</strong>
+                                            </div>
+                                        </div>
+                                        <div class="produce_title">
+                                            <a href="" id="title4">
+                                                hahhahhahha静安嘉分解落实到积分啊可连接拉丝机法律绝对是看bFSHF会计法KJFHddddddddddddddddddddddddddddddddddddddd
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide ">
+                                <div class="produce">
+                                    <div class="produce_img">
+                                        <a href="" target="_blank">
+                                            <img src="./images/img_03.png" alt="" id="img5">
+                                        </a>
+                                    </div>
+                                    <div class="produce_detail">
+                                        <div class="produce_price">
+                                            <div class="produce_price_detali">
+                                                <span>￥</span>
+                                                <strong id="price5">138.00</strong>
+                                            </div>
+                                        </div>
+                                        <div class="produce_title">
+                                            <a href="" id="title5">
+                                                hahhahhahha静安嘉分解落实到积分啊可连接拉丝机法律绝对是看bFSHF会计法KJFHddddddddddddddddddddddddddddddddddddddd
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="swiper-slide ">
+                                <div class="produce">
+                                    <div class="produce_img">
+                                        <img src="" alt="" id="img6">
+                                    </div>
+                                    <div class="produce_detail">
+                                        <div class="produce_price">
+                                            <div class="produce_price_detali">
+                                                <span>￥</span>
+                                                <strong>138.00</strong>
+                                            </div>
+                                        </div>
+                                        <div class="produce_title">
+                                            <a href="">
+                                                hahhahhahha静安嘉分解落实到积分啊可连接拉丝机法律绝对是看bFSHF会计法KJFHddddddddddddddddddddddddddddddddddddddd
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="pagination"></div>                                          
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="content_three">
+                <div class="content_title">
+                    <div class="content_titlename">友情链接</div>
+                    <!-- <div class="more">
+                        <a href="">MORE</a>
+                    </div> -->
+                    <div class="clear"></div>
+                </div>
+                <div class="content_threecon">
+                    <div class="content_link">
+                        <div class="link">
+                            <a href="https://www.baidu.com" target="_blank">百度sdfsasa</a>
+                        </div>
+                        <div class="link">
+                            <a href="https://www.baidu.com" target="_blank">百度sdfsasa</a>
+                        </div>
+                        <div class="link">
+                                <a href="https://www.baidu.com" target="_blank">百度sdfsasa</a>
+                        </div>
+                        <div class="link">
+                            <a href="https://www.baidu.com" target="_blank">百度sdfsasa</a>
+                        </div>
+                        <div class="link">
+                            <a href="https://www.baidu.com" target="_blank">百度sdfsasa</a>
+                        </div>
+                        <div class="link">
+                            <a href="https://www.baidu.com" target="_blank">百度sdfsasa</a>
+                        </div>
+                        <div class="link">
+                            <a href="https://www.baidu.com" target="_blank">百度sdfsasa</a>
+                        </div>
+                        <div class="link">
+                            <a href="https://www.baidu.com" target="_blank">百度sdfsasa</a>
+                        </div>
+                        <div class="link">
+                            <a href="https://www.baidu.com" target="_blank">百度sdfsasa</a>
+                        </div>
+                        <div class="link">
+                            <a href="https://www.baidu.com" target="_blank">百度sdfsasa</a>
+                        </div>
+                        <div class="link">
+                            <a href="https://www.baidu.com" target="_blank">百度sdfsasa</a>
+                        </div>
+                        <div class="link">
+                            <a href="https://www.baidu.com" target="_blank" title="hahah">百度sdfsasa</a>
+                        </div>
+                        
+                        
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="js/foot.js"></script>
+    <!-- <script src="js/jquery-1.10.1.min.js"></script> -->
+     
+    
+</body>
+</html>

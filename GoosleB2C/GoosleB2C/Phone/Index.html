@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="description" content=''>
+    <meta name="keywords" content=''>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper-4.3.3.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper-4.3.3.min.js"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><a href=""><img src="" alt=""></a></div>
+            <div class="swiper-slide"><a href=""><img src="" alt=""></a></div>
+            <div class="swiper-slide"><a href=""><img src="" alt=""></a></div>
+            <div class="swiper-slide"><a href=""><img src="" alt=""></a></div>
+            <div class="swiper-slide"><a href=""><img src="" alt=""></a></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <nav>
+        <a href="Company.html"><img src="image/home.png" alt="">公司详情</a>
+        <a href="Production.html"><img src="image/produce.png" alt="">产品列表</a>
+        <a href="Article.html"><img src="image/passage.png" alt="">近期文章</a>
+        <a href="SuccessCase.html"><img src="image/case.png" alt="">成功案例</a>
+    </nav>
+    
+    <hr>
+
+    <div class="CaseList">
+        <div class="case-head"><img src="image/case_img_1.jpg" alt=""></div>
+    </div>
+
+    <hr>
+
+    <div class="ProduceList">
+        <div class="pro-head"><img src="image/show_1.png" alt=""></div>
+    </div>
+
+    <hr>
+
+    <div class="ArticleList">
+        <div class="art-head"><img src="image/company_Info.png" alt=""></div>
+    </div>
+
+    <hr>
+
+    <div class="VideoBox">
+        <h2></h2>
+        <video width="100%" src="" controls></video>
+    </div>
+
+    <footer>
+        <a href="Home.html"><img src="image/main_ch.png" alt="">首页</a>
+        <a href="Production.html"><img src="image/produces.png" alt="">公司产品</a>
+        <a href="Contact.html"><img src="image/contect.png" alt="">联系我们</a>
+    </footer>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            autoplay: {
+
+            },
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            loop: true
+        });
+    </script>
+
+    <script>
+        var s_total, p_total, a_total;
+        var visitor_ip = returnCitySN["cip"];
+        var visitor_record, visitor_id;
+        var getlink = function(e){
+            e = e || window.event;
+            //如果之前存有该ip记录，更新该ip的访问记录
+            if (visitor_id) {
+                var NextUrl;
+                var data_id = $(this).attr('data-id');
+                if(data_id) NextUrl = $(this).attr('href') + '!!'+ $(this).attr('data-id') + '**';
+                else NextUrl = $(this).attr('href') + '**';
+                visitor_record += NextUrl;
+                var json = JSON.stringify({
+                    id: visitor_id,
+                    url: visitor_record
+                });
+                var obj = "obj=" + json;
+                localStorage.obj = obj;
+                $.ajax({
+                    type: 'post',
+                    dataType: 'jsonp',
+                    data: obj,
+                    jsonp: "jsoncallback",
+                    jsonpCallback: 'updataVisitRecord',
+                    url: '../back/BackSer.asmx/updataVisitRecord',
+                    success: function (result) {
+
+                    }
+                });
+            }
+            //不存在ip记录，则添加该ip
+            else{
+                var NextUrl = $(this).attr('href') + $(this).attr('data-id') + '***';
+                var json = JSON.stringify({
+                    ip: visitor_ip,
+                    url: visitor_record
+                });
+                var obj = "obj=" + json;
+                $.ajax({
+                    type: 'post',
+                    dataType: 'jsonp',
+                    data: obj,
+                    jsonp: "jsoncallback",
+                    jsonpCallback: 'addVisitRecord',
+                    url: '../back/BackSer.asmx/addVisitRecord',
+                    success: function (result) {
+
+                    }
+                });
+            }
+        };
+
+        //网站信息
+        $.ajax({
+            type: 'post',
+            dataType: 'jsonp',
+            jsonp: 'jsoncallback',
+            jsonpCallback: 'getWebInfo',
+            url: '../back/BackSer.asmx/getWebInfo',
+            success: function(result){
+                var data = JSON.parse(JSON.stringify(result).replace(/JSON_/g, ""));
+                console.log(data);
+                data.rows.forEach(function (val, index, arr) {
+                    $('meta[name=keywords]').attr('content', val.seokey);
+                    $('meta[name=description]').attr('content', val.seodescribe);
+                    localStorage.keys = val.seokey;
+                    localStorage.describe = val.seodescribe;
+                });
+            }
+        });
+        //内容数量
+        $.ajax({
+            type: 'post',
+            dataType: 'jsonp',
+            jsonp: 'jsoncallback',
+            jsonpCallback: 'getIndexContent',
+            url: '../back/BackSer.asmx/getIndexContent',
+            success: function(result){
+                var data = JSON.parse(JSON.stringify(result).replace(/JSON_/g, ""));
+                console.log(data);
+                if(data.rows[0].isshowsuccess === '1') s_total = data.rows[0].successtotal;
+                if(data.rows[0].isshowproduct === '1') p_total = data.rows[0].producttotal;
+                if(data.rows[0].isshowarticle === '1') a_total = data.rows[0].articletotal;
+                if(data.rows[0].isshowvideo === '1') {
+                    var VideoPath = data.rows[0].videopath;
+                    var VideoTitle = data.rows[0].videotitle;
+                    $('.VideoBox h2').text(VideoTitle);
+                    $('.VideoBox video').attr('src', VideoPath);
+                }
+            }
+        });
+        //轮播图渲染
+        $.ajax({
+            type: 'post',
+            dataType: 'jsonp',
+            jsonp:"jsoncallback",
+            jsonpCallback: 'getBrand',
+            url:'../back/BackSer.asmx/getBrand',
+            success: function(result){
+                var data = JSON.parse(JSON.stringify(result).replace(/JSON_/g, ""));
+                console.log(data);
+                var n = data.id;
+                var url;
+                switch(n){
+                    case 1: url = 'product-moule.html';break;
+                    case 2: url = 'case-moule.html';break;
+                    case 3: url = 'article-moule.html';break;
+                    default:
+                }
+                var pic = '..';
+                for(let i in data.rows[0]){
+                    if(i.indexOf('vimg') !== -1 ){
+                        $('.swiper-slide img').eq(i.slice(-1) - 1).attr('src', pic + data.rows[0][i]);
+                    }
+                    if(i.indexOf('vurl') !== -1 ){
+                        var url = data.rows[0][i].slice( 2, data.rows[0][i].lastIndexOf(';') );
+                        var id = data.rows[0][i].slice(data.rows[0][i].lastIndexOf(';') + 1);
+                        $('.swiper-slide a').eq(i.slice(-1) - 1).attr('href', pic + url);
+                        $('.swiper-slide a').eq(i.slice(-1) - 1).attr('data-id', id);
+                    }
+                }
+          
+                $('.swiper-slide a').click(function () {
+                    localStorage.id = $(this).attr('data-id');
+                }).click(getlink);
+            }
+        });
+        //案例渲染
+        $.ajax({
+            type: 'post',
+            dataType: 'jsonp',
+            jsonp:"jsoncallback",
+            jsonpCallback: 'getSuccessCase',
+            url: '../back/BackSer.asmx/getSuccessCase',
+            success: function(result) {
+                var data = JSON.parse(JSON.stringify(result).replace(/JSON_/g, "").replace(/categoryname/g, "text"));
+                console.log(data);
+                if (s_total) {
+                    for(let i = 0; i < p_total; i++){
+                        var pic = '..' + data.rows[i].imgs;
+                        $('.CaseList').append('<a class="case"><img src=' + pic + ' alt=""><span>' + data.rows[i].title + '</span></a>');
+                        $('.case:last-child').attr('data-id', data.rows[i].id);
+                        $('.case:last-child').attr('href', 'case-mould.html');
+                    }
+                    //案例点击事件
+                    $('.case').click(function () {
+                        localStorage.id = $(this).attr('data-id');
+                    }).click(getlink);
+                }
+            }
+        });
+        //文章渲染
+        $.ajax({
+            type: 'post',
+            dataType: 'jsonp',
+            jsonp:"jsoncallback",
+            jsonpCallback: 'getArticle',
+            url: '../back/BackSer.asmx/getArticle',
+            success: function(result) {
+                data = JSON.parse(JSON.stringify(result).replace(/JSON_/g, "").replace(/categoryname/g, "text"));
+                console.log(data);
+                if (a_total) {
+                    for(let i = 0; i < p_total; i++){
+                        var pic = '..' + data.rows[i].imgs;
+                        $('.ArticleList').append('<a class="article"><img src=' + pic + ' alt=""><p>' + data.rows[i].title + '</p></a>');
+                        $('.article:last-child').attr('data-id', data.rows[i].id);
+                        $('.article:last-child').attr('href', 'article-mould.html');
+
+                    }
+                    //文章点击事件
+                    $('.article').click(function () {
+                        localStorage.id = $(this).attr('data-id');
+                    }).click(getlink);
+                }
+            }
+        });
+        //产品渲染
+        $.ajax({
+            type: 'post',
+            dataType: 'jsonp',
+            jsonp:"jsoncallback",
+            jsonpCallback: 'getProduction',
+            url: '../back/BackSer.asmx/getProduction',
+            success: function (result) {
+                var data = JSON.parse(JSON.stringify(result).replace(/JSON_/g, "").replace(/categoryname/g, "text"));
+                console.log(data);
+                if (p_total) {
+                    for(let i = 0; i < p_total; i++){
+                        var pic = '..' + data.rows[i].detailimgs;
+                        $('.ProduceList').append('<a class="produce"><img src="'+ pic +'" alt=""><p>'+ data.rows[i].title.substr(0,12) +'</p></a>');
+                        $('.produce:last-child').attr('data-id', data.rows[i].pid);
+                        $('.produce:last-child').attr('href', 'product-mould.html');
+                    }
+
+                    //产品点击事件
+                    $('.produce').click(function () {
+                        localStorage.id = $(this).attr('data-id');
+                    }).click(getlink);
+                }
+            }
+        });
+        //插入图片
+        $.ajax({
+            type: 'post',
+            dataType: 'jsonp',
+            jsonp:"jsoncallback",
+            jsonpCallback: 'getIndexImg',
+            url: '../back/BackSer.asmx/getIndexImg',
+            success: function (result) {
+                var data = JSON.parse(JSON.stringify(result).replace(/JSON_/g, "").replace(/categoryname/g, "text"));
+                var url = data.rows[0].url;
+                var img = '..' + data.rows[0].img;
+                var position = data.rows[0].position;
+                var id = data.rows[0].toid;
+                console.log(data);
+                switch(position){
+                    case '1': $('.CaseList').before('<div class="insertImg"><a href="'+ url + '" data-id='+ id +'"><img src="'+ img +'"></a></div>');break;
+                    case '2': $('.ProduceList').before('<div class="insertImg"><a href="' + url + '" data-id=' + id + '"><img src="' + img + '" class="insertImg"></a></div>'); break;
+                    case '3': $('.ArticleList').before('<div class="insertImg"><a href="' + url + '" data-id=' + id + '"><img src="' + img + '" class="insertImg"></a></div>'); break;
+                }
+                $('.insertImg').click(function () {
+                    localStorage.id = $(this).attr('data-id');
+                }).click(getlink);
+            }
+        });
+        //获取访问记录
+        $.ajax({
+            type: 'post',
+            dataType: 'jsonp',
+            jsonp: "jsoncallback",
+            jsonpCallback: 'getVisitRecord',
+            url: '../back/BackSer.asmx/getVisitRecord',
+            success: function (result) {
+                var data = JSON.parse(JSON.stringify(result).replace(/JSON_/g, "").replace(/categoryname/g, "text"));
+                for(let val of data.rows){
+                    if(val.ip === visitor_ip){
+                        visitor_id = val.id;
+                        visitor_record = val.url;
+                    }
+                }
+            }
+        });
+        //监听链接事件，保存访问记录
+        $('a').click(function(){
+            localStorage.id = $(this).attr('data-id');
+        }).click(getlink);
+    </script>
+</body>
+</html>

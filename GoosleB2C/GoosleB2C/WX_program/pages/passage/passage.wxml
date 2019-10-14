@@ -1,0 +1,35 @@
+<view style='height:321rpx;width:100%;'>
+  <image style='height:321rpx;width:100%;' src='{{passage_img}}'></image>
+</view>
+
+<!-- <view style='width:100%;height:25rpx;background-color:#F3F3F3;'></view>
+
+<view style='width:100%;height:100rpx;'>
+<image src='{{show_1}}' style='width:198rpx; height:72rpx;margin:20rpx 0rpx 20rpx 276rpx;'></image>
+</view>   -->
+
+<view style='height:{{viewHeight}}rpx;overflow: hidden;margin-top:0rpx;'>
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <view class='tab-item' wx:for="{{artcleType}}">
+      <view class="tab-item {{currentTab==item.sort?'active':''}}" data-id='{{item.JSON_id}}' data-sort="{{item.sort}}" bindtap="swichNav">{{item.JSON_typename}}</view>
+    </view>
+
+  </scroll-view>
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+    <swiper-item wx:for="{{artcle}}" >
+      <scroll-view scroll-y="true" class="scoll-h">
+        <block wx:for="{{item}}" >
+            <view class='index_case' bindtap='sw_passage_detail' data-id='{{item}}'>
+              <view>
+                <image class='case_mainimg' src="{{item.JSON_mainimg}}"></image>
+              </view>
+              <view class=' CaseItem '>
+                <text class='title '>{{item.JSON_title}}</text>
+              </view>
+            </view>
+
+        </block>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

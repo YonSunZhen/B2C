@@ -1,0 +1,32 @@
+<div class="footer">
+    <div class="footer_main">
+        <%- locals.headerFooter.bottomContent %>
+    </div>
+</div>
+<div class="backTop" id="toTop">
+    <a href="javascript:;" id="backTop">
+        <img src="/images/huidaodingdian.png" alt="">
+    </a>
+</div>
+<script>
+    var bigClass = $('#toTop');
+    var timer = null;
+    var isTop = true;
+    //获取页面的可视窗口高度
+    //var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+    //滚动条滚动时触发
+    window.onscroll = function(){
+        //在滚动的时候增加判断
+        var osTop = $(document).scrollTop();//特别注意这句，忘了的话很容易出错
+        if (osTop > 20) {
+            bigClass.css('display','block');
+        }else{
+            bigClass.css('display','none');
+        }
+    };
+    $('#backTop').click(function() {
+        $('html,body').animate({
+            scrollTop:0
+        },300);
+    });
+</script>

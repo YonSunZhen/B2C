@@ -1,0 +1,45 @@
+.sub_mltcon dl dt a:hover{
+    color: #24a9e2;
+    text-decoration: none;
+}
+.sub_mltcon dl dd a:hover{
+    color: #24a9e2;
+    text-decoration: none;
+}
+.sub_mltcon {
+    height: auto;
+    border-top: 1px solid #ccc;
+    padding-top: 60px;
+}
+.sub_leftna {
+    float: left;
+}
+.sub_leftmore {
+    float: right;
+    font-size: 12px;
+    padding-right: 20px;
+    line-height: 14px;
+    margin-top: 10px;
+}
+.sub_mltcon dl dt {
+    height: 30px;
+    background: url('../images/subleft_bbtimg.png') no-repeat;
+    line-height: 28px;
+    padding-left: 15px;
+    font-family: "微软雅黑";
+}
+.sub_mltcon dl dd {
+    padding-top: 10px;
+}
+.sub_mltcon ul li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 30px;
+    line-height: 30px;
+    background: url('../images/subleft_bliimg00.png') no-repeat;
+    padding-left: 17px;
+    font-size: 12px;
+    border: 0px;
+    border-bottom: 1px dashed #aeaeae;
+}

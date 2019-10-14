@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/contect/contect",
+    "pages/msg_post/msg_post",
+    "pages/detail/detail",
+    "pages/passage/passage",
+    "pages/case/case",
+    "pages/my_msg/my_msg",
+    "pages/case_detail/case_detail",
+    "pages/good/good",
+    "pages/passageDetail/passageDetail",
+    "pages/searchProduct/searchProduct"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "公司详情",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "height":"40rpx",
+    "color": "#a1a1a1",
+    "selectedColor": "#72b9e8",
+    "borderStyle": "white",
+    "backgoundColor": "#2ff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/image/main.png",
+        "selectedIconPath": "pages/image/main_ch.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "公司产品",
+        "iconPath": "pages/image/produces.png",
+        "selectedIconPath": "pages/image/produces_ch.png"
+      },
+
+      {
+        "pagePath":"pages/contect/contect",
+        "text":"联系我们",
+        "iconPath":"pages/image/contect.png",
+        "selectedIconPath": "pages/image/contect_ch.png"
+      }
+    ]
+  }
+}

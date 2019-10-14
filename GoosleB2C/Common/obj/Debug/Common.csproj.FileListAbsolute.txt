@@ -1,0 +1,5 @@
+E:\B2C项目\GoosleB2C\Common\bin\Debug\GoosleB2C.Common.dll
+E:\B2C项目\GoosleB2C\Common\bin\Debug\GoosleB2C.Common.pdb
+E:\B2C项目\GoosleB2C\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\B2C项目\GoosleB2C\Common\obj\Debug\GoosleB2C.Common.dll
+E:\B2C项目\GoosleB2C\Common\obj\Debug\GoosleB2C.Common.pdb

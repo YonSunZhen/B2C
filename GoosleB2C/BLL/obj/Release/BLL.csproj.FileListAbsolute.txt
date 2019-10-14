@@ -1,0 +1,15 @@
+E:\B2C项目\GoosleB2C\BLL\bin\Release\BLL.dll
+E:\B2C项目\GoosleB2C\BLL\bin\Release\BLL.pdb
+E:\B2C项目\GoosleB2C\BLL\bin\Release\DAL.dll
+E:\B2C项目\GoosleB2C\BLL\bin\Release\Maticsoft.Common.dll
+E:\B2C项目\GoosleB2C\BLL\bin\Release\Model.dll
+E:\B2C项目\GoosleB2C\BLL\bin\Release\DBUtility.dll
+E:\B2C项目\GoosleB2C\BLL\bin\Release\MySql.Data.dll
+E:\B2C项目\GoosleB2C\BLL\bin\Release\System.Data.SQLite.dll
+E:\B2C项目\GoosleB2C\BLL\bin\Release\DAL.pdb
+E:\B2C项目\GoosleB2C\BLL\bin\Release\Model.pdb
+E:\B2C项目\GoosleB2C\BLL\bin\Release\DBUtility.pdb
+E:\B2C项目\GoosleB2C\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+E:\B2C项目\GoosleB2C\BLL\obj\Release\BLL.dll
+E:\B2C项目\GoosleB2C\BLL\obj\Release\BLL.pdb
+E:\B2C项目\GoosleB2C\BLL\bin\Release\GoosleB2C.Common.dll

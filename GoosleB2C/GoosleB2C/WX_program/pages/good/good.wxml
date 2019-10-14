@@ -1,0 +1,29 @@
+<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="imgid">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<view>
+  <text id='title'>
+{{title}}
+</text>
+  <text id='price'>
+{{price}}元
+</text>
+  <!-- 间隔 -->
+  <view class='gap'></view>
+
+  <view>
+    <image src='{{show_1}}' class='title_pic'></image>
+  </view>
+
+  <view class='text_detail'>
+    <text>{{detail}}</text>
+  </view>
+  <view wx:for="{{detail_imgs}}" style='width:100%;'>
+    <image src='{{item}}' style='width:100%;' mode='aspectFit'></image>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+E:\B2C项目\GoosleB2C\DAL\bin\Debug\DAL.dll
+E:\B2C项目\GoosleB2C\DAL\bin\Debug\DAL.pdb
+E:\B2C项目\GoosleB2C\DAL\bin\Debug\DBUtility.dll
+E:\B2C项目\GoosleB2C\DAL\bin\Debug\Maticsoft.Common.dll
+E:\B2C项目\GoosleB2C\DAL\bin\Debug\Model.dll
+E:\B2C项目\GoosleB2C\DAL\bin\Debug\MySql.Data.dll
+E:\B2C项目\GoosleB2C\DAL\bin\Debug\System.Data.SQLite.dll
+E:\B2C项目\GoosleB2C\DAL\bin\Debug\DBUtility.pdb
+E:\B2C项目\GoosleB2C\DAL\bin\Debug\Model.pdb
+E:\B2C项目\GoosleB2C\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\B2C项目\GoosleB2C\DAL\obj\Debug\DAL.dll
+E:\B2C项目\GoosleB2C\DAL\obj\Debug\DAL.pdb
