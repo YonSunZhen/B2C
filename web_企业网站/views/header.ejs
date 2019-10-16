@@ -1,0 +1,122 @@
+
+    <link rel='stylesheet' href='/stylesheets/public.css'>
+    <link rel='stylesheet' href='/stylesheets/index.css'>
+    <div class='header'>
+        <div class='top'>
+            <div class='top_main'>
+                <div class='logo'>
+                    <a href='/'>
+                        <img src='<%= locals.link+locals.headerFooter.logo %>' alt=''>
+                    </a>
+                </div>
+                <div class='telephone'>
+                    <a href='javascript:void(0)' onclick='SetHome(window.location)'>设为首页</a>
+                    |
+                    <a href='javascript:void(0)' onclick='AddFavorite(window.location,document.title)'>加入收藏</a>
+                    <a href=''>
+                        <div class="telephone_img">
+                            <%if(locals.left.contacts){%>
+                                <%=locals.left.contacts[0].JSON_phone%>
+                            <%}%>
+                        </div>
+                    </a>
+                </div>
+                <div class='clear'></div>
+            </div>
+        </div>
+        <div class='head clearfix'>
+            <ul class='nav'>
+                <li class='li01'>
+                    <a href='/'>首页</a>
+                </li>
+
+                <li id='erji5'>
+                    <a class='li02' href='/article'>资讯中心</a>
+                    <div class='erji noDisplay' id='erji55'>
+                        <%if(locals.headerFooter.articleTypes){%>
+                            <%locals.headerFooter.articleTypes.forEach(function(item){%>
+                                <p><a href='/article/type?id=<%=item.JSON_id%>'><%=item.JSON_typename%></a></p>
+                            <%})%>
+                        <%}%>                       
+                    </div>
+                </li>
+
+                <li id='erji1'>
+                    <a class='li02' href='/product'>公司产品</a>
+                    <!-- <div class='erji noDisplay' id='erji11'>
+                        <p><a href=''>1</a></p>
+                        <p><a href=''>1</a></p>
+                        <p><a href=''>1</a></p>
+                    </div> -->
+                </li>
+                <li id='erji2'>
+                    <a class='li02' href='/successCase'>成功案例</a>
+                    <!-- <div class='erji noDisplay' id='erji22'>
+                        <p><a href=''>1</a></p>
+                        <p><a href=''>1</a></p>
+                        <p><a href=''>1</a></p>
+                    </div> -->
+                </li>
+                <li id='erji3'>
+                    <a class='li02' href='/companyInfo/1'>公司信息</a>
+                    <div class='erji noDisplay' id='erji33'>
+                        <p><a href='/companyInfo/1'>公司简介</a></p>
+                        <p><a href='/companyInfo/2'>企业文化</a></p>
+                        <p><a href='/companyInfo/3'>招聘信息</a></p>
+                    </div>
+                </li>
+                <li id='erji4'>
+                    <a class='li02' href='/contact'>联系我们</a>
+                    <div class='erji noDisplay' id='erji44'>
+                        <p><a href='/contact'>联系方式</a></p>
+                        <p><a href='/message'>访客留言</a></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>  
+<script>
+        function AddFavorite(sURL, sTitle) {
+        sURL = encodeURI(sURL);
+        try {
+            window.external.addFavorite(sURL, sTitle);
+        } catch (e) {
+            try {
+                window.sidebar.addPanel(sTitle, sURL, '');
+            } catch (e) {
+                alert('加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.');
+            }
+        }
+    }
+    //设为首页
+    function SetHome(url) {
+        if (document.all) {
+            document.body.style.behavior = 'url(#default#homepage)';
+            document.body.setHomePage(url);
+        } else {
+            alert('您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!');
+        }
+    }
+    //导航栏事件
+
+    $('#erji3').mouseover(function(index){
+        $('#erji33').addClass('display');            
+    });
+    $('#erji3').mouseleave(function(index){
+        $('#erji33').removeClass('display');            
+    });
+
+    $('#erji4').mouseover(function(index){
+        $('#erji44').addClass('display');            
+    });
+    $('#erji4').mouseleave(function(index){
+        $('#erji44').removeClass('display');            
+    });
+
+    $('#erji5').mouseover(function(index){
+        $('#erji55').addClass('display');            
+    });
+    $('#erji5').mouseleave(function(index){
+        $('#erji55').removeClass('display');            
+    });
+    </script>

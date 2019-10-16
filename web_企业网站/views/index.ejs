@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="<%= locals.headerFooter.seoDescribe %>" />
+    <meta name="keywords" content="<%= locals.headerFooter.seoKey %>" />
+    <script src="/javascripts/jquery-1.10.1.min.js"></script>
+    <script src="/javascripts/jquery.flexslider-min.js"></script>
+    <script src="/javascripts/swiper.min.js"></script>
+    <script src="/javascripts/index.js"></script>
+    <!-- <script scripttype="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script> -->
+    <link rel="stylesheet" href="/stylesheets/flexslider-min.css.css" />
+    <link rel="stylesheet" href="/stylesheets/swiper.min.css" />
+    <link rel="stylesheet" href="/stylesheets/ckeditor.css" />
+    <link rel="stylesheet" href="/stylesheets/highlight.css" />
+    <title>首页</title>
+  </head>
+  <body>
+    <script>
+        if (/mobile/i.test(navigator.userAgent)) {
+            window.location = 'https://www.baidu.com';
+        }
+    </script>
+    <%- include('header'); -%>
+    <div class="main">
+      <div class="bannerbox">
+          <div class="flexslider">
+              <ul class="slides">
+                  <li>
+                      <a href="<%=locals.index.url1 %>" target="_blank">
+                          <img src="<%= locals.link+locals.index.img1 %>" alt="" style="width:100%;">
+                      </a>
+                  </li>
+                  <li>
+                      <a href="<%= locals.index.url2 %>" target="_blank">
+                          <img src="<%= locals.link+locals.index.img2 %>" alt="" style="width:100%;">
+                      </a>
+                  </li>
+                  <li>
+                      <a href="<%= locals.index.url3 %>" target="_blank">
+                          <img src="<%= locals.link+locals.index.img3 %>" alt="" style="width:100%;">
+                      </a>
+                  </li>
+              </ul>
+              <ul class="flex-direction-nav">
+                  <li><a href="#" class="flex-prev"></a></li>
+                  <li><a href="#" class="flex-next"></a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="content">
+        <div class="content_one">
+            <div class="content_oneleft">
+                <div class="content_title">
+                    <div class="content_titlename">企业简介</div>
+                    <div class="more">
+                        <a href="/companyInfo/1" target="_blank">MORE</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="content_oneleftcon" style="line-height:23px" id="content_oneleftcon">
+                    <img  src="<%-locals.link+locals.index.detailImg %>" alt="" style="width:295px;height:196px;" >
+                    <%= locals.index.companyDetail %>
+                </div>
+            </div>
+            <!-- <div class="clear"></div> -->
+            <div class="content_oneright">
+                <div class="content_title">
+                    <div class="content_titlename">新闻中心</div>
+                    <div class="more">
+                        <a href="/article" target="_blank">MORE</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="content_onerightcon">
+                    <ul>
+                        <%if(locals.index.articles){%>
+                            <% locals.index.articles.forEach(function(item){%>
+                                <li style="height:30px; line-height: 30px">
+                                    <div class="li_name" style="height:30px;">
+                                        <a href="/articleDetail/<%= item.id %>" target="_blank"><%= item.name %></a>
+                                    </div>
+                                    <div class="li_data"><%= item.time %></div>
+                                </li>
+                            <%})%>
+                        <%}%>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="content_two">
+            <div class=content_title>
+                <div class="content_titlename">产品展示</div>
+                <div class="more">
+                    <a href="/product" target="_blank">MORE</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="content_twocon">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper" id="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="produce">
+                                <div class="produce_img">
+                                    <a href="productDetail/<%= products[0].id %>" target="_blank">
+                                        <img alt="" id="img0" src="<%- locals.link+products[0].mainImg%>_200.jpg">
+                                    </a>
+                                </div>
+                                <div class="produce_detail">
+                                    <div class="produce_price">
+                                        <div class="produce_price_detali">
+                                            <span>￥</span>
+                                            <strong id="price0"><%= products[0].price %></strong>
+                                        </div>
+                                    </div>
+                                    <div class="produce_title">
+                                        <a href="productDetail/<%= products[0].id %>" id="title0" target="_blank">
+                                            <%= products[0].title %>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="produce">
+                                <div class="produce_img">
+                                    <a href="productDetail/<%= products[1].id %>" target="_blank">
+                                        <img src="<%= locals.link+products[1].mainImg %>_200.jpg" alt="" id="img1">
+                                    </a>
+                                </div>
+                                <div class="produce_detail">
+                                    <div class="produce_price">
+                                        <div class="produce_price_detali">
+                                            <span>￥</span>
+                                            <strong id="price1"><%= products[1].price %></strong>
+                                        </div>
+                                    </div>
+                                    <div class="produce_title">
+                                        <a href="productDetail/<%= products[1].id %>" id="title1" target="_blank">
+                                            <%= products[1].title %>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="produce">
+                                <div class="produce_img">
+                                    <a href="productDetail/<%= products[2].id %>" target="_blank">
+                                        <img src="<%= locals.link+products[2].mainImg %>_200.jpg" alt="" id="img2">
+                                    </a>
+                                </div>
+                                <div class="produce_detail">
+                                    <div class="produce_price">
+                                        <div class="produce_price_detali">
+                                            <span>￥</span>
+                                            <strong id="price2"><%= products[2].price %></strong>
+                                        </div>
+                                    </div>
+                                    <div class="produce_title">
+                                        <a href="productDetail/<%= products[2].id %>" id="title2" target="_blank">
+                                            <%= products[2].title %>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="produce">
+                                <div class="produce_img">
+                                    <a href="productDetail/<%= products[3].id %>" target="_blank">
+                                        <img src="<%= locals.link+products[3].mainImg %>_200.jpg" alt="" id="img3">
+                                    </a>
+                                </div>
+                                <div class="produce_detail">
+                                    <div class="produce_price">
+                                        <div class="produce_price_detali">
+                                            <span>￥</span>
+                                            <strong id="price3"><%= products[3].price %></strong>
+                                        </div>
+                                    </div>
+                                    <div class="produce_title">
+                                        <a href="productDetail/<%= products[3].id %>" id="title3" target="_blank">
+                                            <%= products[3].title %>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="produce">
+                                <div class="produce_img">
+                                    <a href="productDetail/<%= products[4].id %>" target="_blank">
+                                        <img src="<%= locals.link+products[4].mainImg %>_200.jpg" alt="" id="img4">
+                                    </a>
+                                </div>
+                                <div class="produce_detail">
+                                    <div class="produce_price">
+                                        <div class="produce_price_detali">
+                                            <span>￥</span>
+                                            <strong id="price4"><%= products[4].price %></strong>
+                                        </div>
+                                    </div>
+                                    <div class="produce_title">
+                                        <a href="productDetail/<%= products[4].id %>" id="title4" target="_blank">
+                                            <%= products[4].title %>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="produce">
+                                <div class="produce_img">
+                                    <a href="productDetail/<%= products[5].id %>" target="_blank">
+                                        <img src="<%= locals.link+products[5].mainImg %>_200.jpg" alt="" id="img5">
+                                    </a>
+                                </div>
+                                <div class="produce_detail">
+                                    <div class="produce_price">
+                                        <div class="produce_price_detali">
+                                            <span>￥</span>
+                                            <strong id="price5"><%= products[5].price %></strong>
+                                        </div>
+                                    </div>
+                                    <div class="produce_title">
+                                        <a href="productDetail/<%= products[5].id %>" id="title5" target="_blank">
+                                            <%= products[5].title %>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="swiper-slide ">
+                            <div class="produce">
+                                <div class="produce_img">
+                                    <img src="" alt="" id="img6">
+                                </div>
+                                <div class="produce_detail">
+                                    <div class="produce_price">
+                                        <div class="produce_price_detali">
+                                            <span>￥</span>
+                                            <strong>138.00</strong>
+                                        </div>
+                                    </div>
+                                    <div class="produce_title">
+                                        <a href="">
+                                            hahhahhahha静安嘉分解落实到积分啊可连接拉丝机法律绝对是看bFSHF会计法KJFHddddddddddddddddddddddddddddddddddddddd
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="pagination"></div>                                          
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="content_three">
+            <div class="content_title">
+                <div class="content_titlename">友情链接</div>
+                <div class="clear"></div>
+            </div>
+            <div class="content_threecon">
+                <div class="content_link">
+                    <%if(locals.index.links){%>
+                        <% locals.index.links.forEach(function(item){ %>
+                            <div class="link">
+                                <a href="<%= item.url %>" target="_blank" title="<%= item.tag %>"><%= item.name %></a>
+                            </div>
+                        <% }) %>
+                    <%}%>
+                    
+                    <div class="clear"></div>
+                </div>          
+            </div>
+        </div>
+      </div>
+    </div>
+    <%- include('footer'); -%>
+    <script>
+      const link = '<%= locals.link %>';
+    </script>
+  </body>
+</html>
